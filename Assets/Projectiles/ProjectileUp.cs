@@ -15,6 +15,12 @@ public class ProjectileUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Destroy(gameObject, 5);
         transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
     }
 }
