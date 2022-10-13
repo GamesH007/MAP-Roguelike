@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour
 
     public float fireRate = 1;
 
-    public GameObject projectile;
+    public GameObject projectileUP;
+    public GameObject projectileDOWN;
+    public GameObject projectileLEFT;
+    public GameObject projectileRIGHT;
 
     private Vector2 _rotation;
     private float cooldown = 2f;
@@ -40,44 +43,44 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
         }
-        
+
         if (Input.GetKey(KeyCode.A))
         {
             transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
         }
-        
+
         if (Input.GetKey(KeyCode.D))
         {
             transform.position = new Vector2(transform.position.x + distance * speed, transform.position.y);
-        }       
+        }
     }
     private void Fire()
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             _rotation = Vector2.up;
-            Instantiate(projectile, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileUP, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             _rotation = Vector2.down;
-            Instantiate(projectile, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileDOWN, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             _rotation = Vector2.left;
-            Instantiate(projectile, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileLEFT, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             _rotation = Vector2.right;
-            Instantiate(projectile, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileRIGHT, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
 
