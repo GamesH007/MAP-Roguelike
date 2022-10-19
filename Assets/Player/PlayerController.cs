@@ -7,16 +7,19 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
     private float distance = 0.01f;
 
+    public float health = 10;
+
     public float fireRate = 1;
+    public float damage = 1;
 
     public GameObject projectileUP;
     public GameObject projectileDOWN;
     public GameObject projectileLEFT;
     public GameObject projectileRIGHT;
-    ProjectileDown  DownShotSpeed;
-    ProjectileUp UpShotSpeed;
-    ProjectileLeft LeftShotSpeed;
-    ProjectileRight RightShotSpeed;
+    ProjectileDown  DownShot;
+    ProjectileUp UpShot;
+    ProjectileLeft LeftShot;
+    ProjectileRight RightShot;
 
     public float ShotSpeed = 1;
 
@@ -27,19 +30,23 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DownShotSpeed = projectileDOWN.GetComponent<ProjectileDown>();
-        UpShotSpeed = projectileUP.GetComponent<ProjectileUp>();
-        LeftShotSpeed = projectileLEFT.GetComponent<ProjectileLeft>();
-        RightShotSpeed = projectileRIGHT.GetComponent<ProjectileRight>();
+        DownShot = projectileDOWN.GetComponent<ProjectileDown>();
+        UpShot = projectileUP.GetComponent<ProjectileUp>();
+        LeftShot = projectileLEFT.GetComponent<ProjectileLeft>();
+        RightShot = projectileRIGHT.GetComponent<ProjectileRight>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        DownShotSpeed.speed = ShotSpeed;
-        LeftShotSpeed.speed = ShotSpeed;
-        RightShotSpeed.speed = ShotSpeed;
-        UpShotSpeed.speed = ShotSpeed;
+        DownShot.speed = ShotSpeed;
+        LeftShot.speed = ShotSpeed;
+        RightShot.speed = ShotSpeed;
+        UpShot.speed = ShotSpeed;
+        DownShot.damage = damage;
+        LeftShot.damage = damage;
+        RightShot.damage = damage;
+        UpShot.damage = damage;
 
         if (Time.time > lastShotTime + cooldown / fireRate)
         {

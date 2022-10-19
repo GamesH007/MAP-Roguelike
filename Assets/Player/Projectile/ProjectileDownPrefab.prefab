@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121f0cea70a8d0d4fb91d5040084d33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 612293702843378276, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
   speed: 1
+  damage: 2
 --- !u!50 &1295507283340101928
 Rigidbody2D:
   serializedVersion: 4
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0

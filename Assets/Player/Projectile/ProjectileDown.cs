@@ -6,6 +6,9 @@ public class ProjectileDown : MonoBehaviour
 {
     public float speed = 1;
     private float distance = 0.025f;
+
+    public float damage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +23,10 @@ public class ProjectileDown : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.TryGetComponent(out Health target))
+        {
+            target.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 }
