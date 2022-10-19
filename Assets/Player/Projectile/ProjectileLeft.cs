@@ -18,7 +18,7 @@ public class ProjectileLeft : MonoBehaviour
         transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }

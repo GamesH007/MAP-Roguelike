@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileDown : MonoBehaviour
 {
-    public float speed = 1;
+    public float speed ShotSpeed;
     private float distance = 0.025f;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class ProjectileDown : MonoBehaviour
         transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }

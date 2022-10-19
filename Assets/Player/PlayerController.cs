@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private float cooldown = 2f;
     private float lastShotTime = 0f;
 
+    [SerializeField] private float ShotSpeed = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,21 +64,18 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectileUP, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
-
         if (Input.GetKey(KeyCode.DownArrow))
         {
             _rotation = Vector2.down;
             Instantiate(projectileDOWN, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             _rotation = Vector2.left;
             Instantiate(projectileLEFT, transform.position, Quaternion.Euler(_rotation));
             new WaitForSeconds(2);
         }
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
             _rotation = Vector2.right;
