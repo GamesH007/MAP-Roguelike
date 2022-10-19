@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileDown : MonoBehaviour
 {
-    public float speed ShotSpeed;
+    public float speed = 1;
     private float distance = 0.025f;
     // Start is called before the first frame update
     void Start()

@@ -18,12 +18,10 @@ public class PlayerController : MonoBehaviour
     private float cooldown = 2f;
     private float lastShotTime = 0f;
 
-    [SerializeField] private float ShotSpeed = 1f;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        projectileDOWN = 
     }
 
     // Update is called once per frame
