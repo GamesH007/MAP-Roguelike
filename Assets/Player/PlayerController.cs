@@ -13,6 +13,12 @@ public class PlayerController : MonoBehaviour
     public GameObject projectileDOWN;
     public GameObject projectileLEFT;
     public GameObject projectileRIGHT;
+    ProjectileDown  DownShotSpeed;
+    ProjectileUp UpShotSpeed;
+    ProjectileLeft LeftShotSpeed;
+    ProjectileRight RightShotSpeed;
+
+    public float ShotSpeed = 1;
 
     private Vector2 _rotation;
     private float cooldown = 2f;
@@ -21,12 +27,19 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        projectileDOWN = 
+        DownShotSpeed = projectileDOWN.GetComponent<ProjectileDown>();
+        UpShotSpeed = projectileUP.GetComponent<ProjectileUp>();
+        LeftShotSpeed = projectileLEFT.GetComponent<ProjectileLeft>();
+        RightShotSpeed = projectileRIGHT.GetComponent<ProjectileRight>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        DownShotSpeed.speed = ShotSpeed;
+        LeftShotSpeed.speed = ShotSpeed;
+        RightShotSpeed.speed = ShotSpeed;
+        UpShotSpeed.speed = ShotSpeed;
 
         if (Time.time > lastShotTime + cooldown / fireRate)
         {
