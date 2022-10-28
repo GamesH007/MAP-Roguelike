@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 1;
     private float distance = 0.01f;
 
-    public float health = 10;
+    public float maxHealth = 10;
+    private float currentHp;
 
-    public float fireRate = 1;
+    public float fireRate = 1f;
     public float damage = 1;
 
     public GameObject projectileUP;
@@ -25,15 +26,18 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _rotation;
     private float cooldown = 2f;
-    private float lastShotTime = 0f;
+    private float nextShotTime = 0.15f;
 
     // Start is called before the first frame update
     void Start()
     {
+
         DownShot = projectileDOWN.GetComponent<ProjectileDown>();
         UpShot = projectileUP.GetComponent<ProjectileUp>();
         LeftShot = projectileLEFT.GetComponent<ProjectileLeft>();
         RightShot = projectileRIGHT.GetComponent<ProjectileRight>();
+
+        currentHp = maxHealth;
     }
 
     // Update is called once per frame
@@ -48,57 +52,61 @@ public class PlayerController : MonoBehaviour
         RightShot.damage = damage;
         UpShot.damage = damage;
 
-        if (Time.time > lastShotTime + cooldown / fireRate)
-        {
-            lastShotTime = Time.time;
-            Fire();
-        }
+        Fire();
 
         if (Input.GetKey(KeyCode.W))
         {
             transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed);
         }
-
         if (Input.GetKey(KeyCode.S))
         {
             transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
         }
-
         if (Input.GetKey(KeyCode.A))
         {
             transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
         }
-
         if (Input.GetKey(KeyCode.D))
         {
             transform.position = new Vector2(transform.position.x + distance * speed, transform.position.y);
         }
+
+        if (currentHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
+
+    public void TakeDamage(float dmg)
+    {
+        currentHp -= dmg;
+    }
+
     private void Fire()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.up;
             Instantiate(projectileUP, transform.position, Quaternion.Euler(_rotation));
-            new WaitForSeconds(2);
+            nextShotTime = Time.time + (cooldown / fireRate);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.down;
             Instantiate(projectileDOWN, transform.position, Quaternion.Euler(_rotation));
-            new WaitForSeconds(2);
+            nextShotTime = Time.time + (cooldown / fireRate);
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.left;
             Instantiate(projectileLEFT, transform.position, Quaternion.Euler(_rotation));
-            new WaitForSeconds(2);
+            nextShotTime = Time.time + (cooldown / fireRate);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.right;
             Instantiate(projectileRIGHT, transform.position, Quaternion.Euler(_rotation));
-            new WaitForSeconds(2);
+            nextShotTime = Time.time + (cooldown / fireRate);
         }
 
     }

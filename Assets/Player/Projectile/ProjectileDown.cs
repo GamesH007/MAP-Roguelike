@@ -23,7 +23,7 @@ public class ProjectileDown : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Health target))
+        if (collision.gameObject.TryGetComponent(out GenericEnemy target))
         {
             target.TakeDamage(damage);
         }
