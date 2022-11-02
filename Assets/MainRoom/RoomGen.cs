@@ -7,34 +7,35 @@ public class RoomGen : MonoBehaviour
     public GameObject norRoom;
     public GameObject endRoom;
     public GameObject iteRoom;
-    public Transform parent;
-    public Vector2 newPosition;
-    public Quaternion newRotation;
     int moveRight = 25;
     int moveLeft = -25;
     int moveUp = 11;
     int moveDown = -11;
-    static int x = 11; // use odd numbers (size of map)
-    static int y = 11;
-    int[,] map = new int[x, y];
+    public int mSize = 33; // use odd numbers max size is 999 (size of map)
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i <x; i++)
+        int[,] map = new int[999,999];
+        Vector2 newPosition = new Vector2(0,0);
+        Quaternion newRotation = new Quaternion(0,0,0,0);
+
+        for (int i = 0; i <mSize; i++)
         {
-            for (int z = 0; z < y; z++)
+            for (int z = 0; z < mSize; z++)
             {
                 map[i, z] = 0;
             }
         }
-        map = GetVeinDown(map);
-        map = GetVeinUp(map);
-        map = GetVeinRight(map);
-        map = GetVeinLeft(map);
-        int rn = Random.Range(0, 4);
+        map = GetVeinDown(map,mSize);
+        map = GetVeinUp(map,mSize);
+        map = GetVeinRight(map,mSize);
+        map = GetVeinLeft(map,mSize);
+        int rn = Random.Range(0,4);
         if (rn == 0 )
         {
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i < mSize; i++)
             {
                 if (map[i, 0] == 1)
                 {
@@ -42,17 +43,17 @@ public class RoomGen : MonoBehaviour
                 }
                 
             }
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i < mSize; i++)
             {
-                if (map[i, y - 1] == 1)
+                if (map[i, mSize - 1] == 1)
                 {
-                    map[i, y - 1] = 2;
+                    map[i, mSize - 1] = 2;
                 }
             }
         }
         if (rn == 1)
         {
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i < mSize; i++)
             {
                 if (map[0, i] == 1)
                 {
@@ -60,25 +61,25 @@ public class RoomGen : MonoBehaviour
                 }
 
             }
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i < mSize; i++)
             {
-                if (map[x - 1, i] == 1)
+                if (map[mSize - 1, i] == 1)
                 {
-                    map[x - 1, i] = 2;
+                    map[mSize - 1, i] = 2;
                 }
             }
         }
         if (rn == 2)
         {
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i < mSize; i++)
             {
-                if (map[i, y - 1] == 1)
+                if (map[i, mSize - 1] == 1)
                 {
-                    map[i, y - 1] = 3;
+                    map[i, mSize - 1] = 3;
                 }
 
             }
-            for (int i = 0; i < x; i++)
+            for (int i = 0; i < mSize; i++)
             {
                 if (map[i , 0] == 1)
                 {
@@ -88,15 +89,15 @@ public class RoomGen : MonoBehaviour
         }
         if (rn == 3)
         {
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i < mSize; i++)
             {
-                if (map[x - 1, i] == 1)
+                if (map[mSize - 1, i] == 1)
                 {
-                    map[x - 1, i] = 3;
+                    map[mSize - 1, i] = 3;
                 }
 
             }
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i < mSize; i++)
             {
                 if (map[0, i] == 1)
                 {
@@ -109,40 +110,40 @@ public class RoomGen : MonoBehaviour
 
         int changeLeft;
         int changeup;
-        for (int i = 0; i < x; i++)
+        for (int i = 0; i < mSize; i++)
         {
-            for (int z = 0; z < y; z++)
+            for (int z = 0; z < mSize; z++)
             {
                 
                 newPosition[0] = moveRight * i;
                 newPosition[1] = moveDown * z;
-                changeLeft = x / 2;
+                changeLeft = mSize / 2;
                 newPosition[0] += moveLeft * changeLeft;
-                changeup = y / 2;
+                changeup = mSize / 2;
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation, parent); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation); };
                 }
                 if (map[i, z] == 2)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation, parent); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); };
                 }
                 if (map[i, z] == 3)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation, parent); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); };
                 }
             }
         }
 
     }
-    static int[,] GetVeinDown(int[,] r )
+    static int[,] GetVeinDown(int[,] r, int mSize)
     {
-        int down = x / 2;
-        int vein = y / 2;
+        int down = mSize / 2;
+        int vein = mSize / 2;
         int[,] map = r;
         int rn;
-        int f = y / 2;
+        int f = mSize / 2;
         for (int i = 0; i < f; i++)
         {
             rn = Random.Range(0, 100);
@@ -165,13 +166,13 @@ public class RoomGen : MonoBehaviour
         }
         return map;
     }
-    static int[,] GetVeinUp(int[,] r)
+    static int[,] GetVeinUp(int[,] r, int mSize)
     {
-        int up = x / 2;
-        int vein = y / 2;
+        int up = mSize / 2;
+        int vein = mSize / 2;
         int[,] map = r;
         int rn;
-        int f = y / 2;
+        int f = mSize / 2;
         for (int i = 0; i < f; i++)
         {
             rn = Random.Range(0, 100);
@@ -194,13 +195,13 @@ public class RoomGen : MonoBehaviour
         }
         return map;
     }
-    static int[,] GetVeinRight(int[,] r)
+    static int[,] GetVeinRight(int[,] r, int mSize)
     {
-        int right = x / 2;
-        int vein = y / 2;
+        int right = mSize / 2;
+        int vein = mSize / 2;
         int[,] map = r;
         int rn;
-        int f = y / 2;
+        int f = mSize / 2;
         for (int i = 0; i < f; i++)
         {
             rn = Random.Range(0, 100);
@@ -223,13 +224,13 @@ public class RoomGen : MonoBehaviour
         }
         return map;
     }
-    static int[,] GetVeinLeft(int[,] r)
+    static int[,] GetVeinLeft(int[,] r, int mSize)
     {
-        int left = x / 2;
-        int vein = y / 2;
+        int left = mSize / 2;
+        int vein = mSize / 2;
         int[,] map = r;
         int rn;
-        int f = y / 2;
+        int f = mSize / 2;
         for (int i = 0; i < f; i++)
         {
             rn = Random.Range(0, 100);
