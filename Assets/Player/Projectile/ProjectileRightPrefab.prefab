@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2859161942724882466}
   - component: {fileID: -3203323735058549267}
   - component: {fileID: -6169440958815664712}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: ProjectileRightPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 2
+  damage: 1
 --- !u!50 &-6169440958815664712
 Rigidbody2D:
   serializedVersion: 4

@@ -14,8 +14,6 @@ public class GenericEnemy : MonoBehaviour
 
     private float collisionDamage = 1;
 
-    public float projectileDamage = 1;
-
     // Start is called before the first frame update
     void Start()
     {

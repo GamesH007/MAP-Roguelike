@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2691662772618150274, guid: a63cd3580b9a3c648b5ebe02cea1cd12, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2691662772618150279, guid: a63cd3580b9a3c648b5ebe02cea1cd12, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -182,7 +186,8 @@ PrefabInstance:
       propertyPath: range
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: a63cd3580b9a3c648b5ebe02cea1cd12, type: 3}
 --- !u!1 &90642530
 GameObject:
@@ -363,7 +368,7 @@ GameObject:
   - component: {fileID: 1261984608}
   - component: {fileID: 1261984607}
   - component: {fileID: 1261984606}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,60 +525,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
---- !u!1001 &2510295773007493142
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4850991911104581110, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5116401880599566070, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
-      propertyPath: m_Name
-      value: TurretProjectile
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4e9c950c032bc3a438479204e062b82c, type: 3}
