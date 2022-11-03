@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileRight : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.025f;
+    private float distance = 2.5f;
 
     public float damage = 1;
 
@@ -18,7 +18,7 @@ public class ProjectileRight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x + distance * speed, transform.position.y);
+        transform.position = new Vector2(transform.position.x + distance * speed * Time.deltaTime, transform.position.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

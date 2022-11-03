@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileUp : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.025f;
+    private float distance = 2.5f;
 
     public float damage = 1;
 
@@ -18,7 +18,7 @@ public class ProjectileUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed);
+        transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

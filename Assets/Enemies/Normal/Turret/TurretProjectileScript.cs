@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretProjectileScript : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.025f;
+    private float distance = 2.5f;
 
     public float damage = 1;
 
@@ -26,7 +26,7 @@ public class TurretProjectileScript : MonoBehaviour
     void Update()
     {
         transform.rotation = Turret.transform.rotation;
-        Projectile_Rigidbody.velocity = direction * speed * distance;
+        Projectile_Rigidbody.velocity = direction * speed * distance * Time.deltaTime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

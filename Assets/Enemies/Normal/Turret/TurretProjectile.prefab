@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7008c02ab51b6a849bb5faa6811b0b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 50
   damage: 1
-  direction: {x: -3.8781335, y: -2.0564046}
+  direction: {x: -4.1307263, y: -0.13373303}
   Turret: {fileID: 2691662772618150274, guid: a63cd3580b9a3c648b5ebe02cea1cd12, type: 3}
 --- !u!50 &-2333897239310159052
 Rigidbody2D:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GenericEnemy : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.0025f;
+    private float distance = 2.5f;
 
     private GameObject player;
 
@@ -26,19 +26,19 @@ public class GenericEnemy : MonoBehaviour
     {
         if (player.transform.position.x > transform.position.x)
         {
-            transform.position = new Vector2(transform.position.x + distance * speed, transform.position.y);
+            transform.position = new Vector2(transform.position.x + distance * speed * Time.deltaTime, transform.position.y);
         }
         if (player.transform.position.x < transform.position.x)
         {
-            transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
+            transform.position = new Vector2(transform.position.x - distance * speed * Time.deltaTime, transform.position.y);
         }
         if (player.transform.position.y > transform.position.y)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed * Time.deltaTime);
         }
         if (player.transform.position.y < transform.position.y)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed * Time.deltaTime);
         }
 
         if (currentHp <= 0)

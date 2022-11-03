@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyProjectileLeft : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.025f;
+    private float distance = 2.5f;
 
     public float damage = 1;
 

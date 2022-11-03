@@ -10,37 +10,36 @@ public class WalkShootScript : MonoBehaviour
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
 
-    public float projectDamage = 1;
+    private float playerPosX;
+    private float playerPosY;
+    private float thisPosX;
+    private float thisPosY;
 
     public GameObject EnProjDown;
     public GameObject EnProjUp;
     public GameObject EnProjRight;
     public GameObject EnProjLeft;
 
-    EnemyProjectileDown eneProjecDown;
-    EnemyProjectileUp eneProjecUp;
-    EnemyProjectileRight eneProjecRight;
-    EnemyProjectileLeft eneProjecLeft;
-
     // Start is called before the first frame update
     void Start()
     {
-        eneProjecDown = EnProjDown.GetComponent<EnemyProjectileDown>();
-        eneProjecRight = EnProjRight.GetComponent<EnemyProjectileRight>();
-        eneProjecUp = EnProjUp.GetComponent<EnemyProjectileUp>();
-        eneProjecLeft = EnProjLeft.GetComponent<EnemyProjectileLeft>();
         player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        eneProjecDown.damage = projectDamage;
-        eneProjecLeft.damage = projectDamage;
-        eneProjecRight.damage = projectDamage;
-        eneProjecUp.damage = projectDamage;
+        playerPosX = Mathf.Round(player.transform.position.x);
+        playerPosY = Mathf.Round(player.transform.position.y);
+        thisPosX = Mathf.Round(transform.position.x);
+        thisPosY = Mathf.Round(transform.position.y);
 
-        if (player.transform.position.x == transform.position.x && player.transform.position.y > transform.position.y)
+        EnemyFire();
+    }
+
+    private void EnemyFire()
+    {
+        if (playerPosX == thisPosX && playerPosY > thisPosY)
         {
             if (Time.time > nextShotTime)
             {
@@ -48,7 +47,7 @@ public class WalkShootScript : MonoBehaviour
                 nextShotTime = Time.time + cooldown;
             }
         }
-        if (player.transform.position.x == transform.position.x && player.transform.position.y < transform.position.y)
+        if (playerPosX == thisPosX && playerPosY < thisPosY)
         {
             if (Time.time > nextShotTime)
             {
@@ -56,7 +55,7 @@ public class WalkShootScript : MonoBehaviour
                 nextShotTime = Time.time + cooldown;
             }
         }
-        if (player.transform.position.y == transform.position.y && player.transform.position.x > transform.position.x)
+        if (playerPosX > thisPosX && playerPosY == thisPosY)
         {
             if (Time.time > nextShotTime)
             {
@@ -64,7 +63,7 @@ public class WalkShootScript : MonoBehaviour
                 nextShotTime = Time.time + cooldown;
             }
         }
-        if (player.transform.position.y == transform.position.y && player.transform.position.x < transform.position.x)
+        if (playerPosX < thisPosX && playerPosY == thisPosY)
         {
             if (Time.time > nextShotTime)
             {

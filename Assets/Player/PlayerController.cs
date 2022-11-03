@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 0.01f;
+    private float distance = 5f;
 
     public float maxHealth = 10;
     private float currentHp;
@@ -56,19 +56,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
+            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
+            transform.position = new Vector2(transform.position.x - distance * speed * Time.deltaTime, transform.position.y);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = new Vector2(transform.position.x + distance * speed, transform.position.y);
+            transform.position = new Vector2(transform.position.x + distance * speed * Time.deltaTime, transform.position.y);
         }
 
         if (currentHp <= 0)
