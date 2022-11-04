@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class WalkShootScript : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class WalkShootScript : MonoBehaviour
     public GameObject EnProjRight;
     public GameObject EnProjLeft;
 
+    private Vector2 Direction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,14 +37,20 @@ public class WalkShootScript : MonoBehaviour
         thisPosX = Mathf.Round(transform.position.x);
         thisPosY = Mathf.Round(transform.position.y);
 
+        Vector2 targetPos = player.transform.position;
+
+        Direction = targetPos - (Vector2)transform.position;
+
         EnemyFire();
     }
 
     private void EnemyFire()
     {
+        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction);
+
         if (playerPosX == thisPosX && playerPosY > thisPosY)
         {
-            if (Time.time > nextShotTime)
+            if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
                 Instantiate(EnProjUp, transform.position, Quaternion.Euler(rotation));
                 nextShotTime = Time.time + cooldown;
@@ -49,7 +58,7 @@ public class WalkShootScript : MonoBehaviour
         }
         if (playerPosX == thisPosX && playerPosY < thisPosY)
         {
-            if (Time.time > nextShotTime)
+            if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
                 Instantiate(EnProjDown, transform.position, Quaternion.Euler(rotation));
                 nextShotTime = Time.time + cooldown;
@@ -57,7 +66,7 @@ public class WalkShootScript : MonoBehaviour
         }
         if (playerPosX > thisPosX && playerPosY == thisPosY)
         {
-            if (Time.time > nextShotTime)
+            if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
                 Instantiate(EnProjRight, transform.position, Quaternion.Euler(rotation));
                 nextShotTime = Time.time + cooldown;
@@ -65,7 +74,7 @@ public class WalkShootScript : MonoBehaviour
         }
         if (playerPosX < thisPosX && playerPosY == thisPosY)
         {
-            if (Time.time > nextShotTime)
+            if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
                 Instantiate(EnProjLeft, transform.position, Quaternion.Euler(rotation));
                 nextShotTime = Time.time + cooldown;
