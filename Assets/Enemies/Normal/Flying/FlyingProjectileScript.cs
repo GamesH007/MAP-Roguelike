@@ -14,11 +14,13 @@ public class FlyingProjectileScript : MonoBehaviour
     public Vector2 direction;
 
     public GameObject Flyer;
+    private Quaternion projectRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         Projectile_Rigidbody = GetComponent<Rigidbody2D>();
+        projectRotation = transform.rotation * Quaternion.Euler(direction);
 
         Destroy(gameObject, 5);
     }
@@ -26,7 +28,7 @@ public class FlyingProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(direction);
+        transform.rotation = projectRotation;
         Projectile_Rigidbody.velocity = direction * speed * distance * Time.deltaTime;
     }
 

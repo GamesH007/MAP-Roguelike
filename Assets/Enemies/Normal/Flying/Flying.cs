@@ -24,6 +24,7 @@ public class Flying : MonoBehaviour
     void Start()
     {
         flyingProjectile = FlyingProjectile.GetComponent<FlyingProjectileScript>();
+        target = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -34,6 +35,8 @@ public class Flying : MonoBehaviour
         Vector2 targetPos = target.transform.position;
 
         Direction = targetPos - (Vector2)transform.position;
+
+        flyingProjectile.direction = Direction;
 
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, range);
 
