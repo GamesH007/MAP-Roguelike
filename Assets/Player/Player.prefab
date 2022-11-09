@@ -125,9 +125,10 @@ MonoBehaviour:
   projectileLEFT: {fileID: 6452554917715102238, guid: a13dd4ce0f8acd84fa10d41f4727e99f, type: 3}
   projectileRIGHT: {fileID: 6452554917715102238, guid: 9dd8c99d0adcf964baa52a550b61c6a7, type: 3}
   ShotSpeed: 1
-  roomDistance: 2.3
+  roomDistanceUp: 4
+  roomDistanceRight: 3
   cameraDistanceY: 11
-  cameraDistanceX: 25
+  cameraDistanceX: 18.5
 --- !u!50 &612293702843378273
 Rigidbody2D:
   serializedVersion: 4

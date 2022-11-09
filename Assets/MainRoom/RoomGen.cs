@@ -7,8 +7,8 @@ public class RoomGen : MonoBehaviour
     public GameObject norRoom;
     public GameObject endRoom;
     public GameObject iteRoom;
-    int moveRight = 25;
-    int moveLeft = -25;
+    float moveRight = 18.5f;
+    float moveLeft = -18.5f;
     int moveUp = 11;
     int moveDown = -11;
     public int mSize = 33; // use odd numbers max size is 999 (size of map)

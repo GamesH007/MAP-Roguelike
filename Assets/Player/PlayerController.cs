@@ -25,15 +25,16 @@ public class PlayerController : MonoBehaviour
     ProjectileLeft LeftShot;
     ProjectileRight RightShot;
 
-    public float ShotSpeed = 1;
+    public float ShotSpeed = 120;
 
     private Vector2 _rotation;
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
 
-    public float roomDistance = 2.3f;
-    public float cameraDistanceY = 11;
-    public float cameraDistanceX = 25;
+    public float roomDistanceUp = 3f;
+    public float roomDistanceRight = 3f;
+    public float cameraDistanceY = 11f;
+    public float cameraDistanceX = 18.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -122,23 +123,23 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "DoorUp")
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + roomDistance);
-            Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y + cameraDistanceY);
+            transform.position = new Vector2(transform.position.x, transform.position.y + roomDistanceUp);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorDown")
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - roomDistance);
-            Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y - cameraDistanceY);
+            transform.position = new Vector2(transform.position.x, transform.position.y - roomDistanceUp);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorRight")
         {
-            transform.position = new Vector2(transform.position.x + roomDistance, transform.position.y);
-            Camera.main.transform.position = new Vector2(transform.position.x + cameraDistanceX, transform.position.y);
+            transform.position = new Vector2(transform.position.x + roomDistanceRight, transform.position.y);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorLeft")
         {
-            transform.position = new Vector2(transform.position.x - roomDistance, transform.position.y);
-            Camera.main.transform.position = new Vector2(transform.position.x - cameraDistanceX, transform.position.y);
+            transform.position = new Vector2(transform.position.x - roomDistanceRight, transform.position.y);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
     }
 }
