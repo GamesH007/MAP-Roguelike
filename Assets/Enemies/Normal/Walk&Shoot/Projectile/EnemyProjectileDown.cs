@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyProjectileDown : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     public float speed = 1;
     private float distance = 2.5f;
 
@@ -18,7 +20,7 @@ public class EnemyProjectileDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed);
+        rb.AddForce(-transform.up * distance * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

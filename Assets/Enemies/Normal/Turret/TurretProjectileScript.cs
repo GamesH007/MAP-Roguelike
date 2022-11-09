@@ -26,7 +26,7 @@ public class TurretProjectileScript : MonoBehaviour
     void Update()
     {
         transform.rotation = Turret.transform.rotation;
-        Projectile_Rigidbody.velocity = direction * speed * distance * Time.deltaTime;
+        Projectile_Rigidbody.AddForce((transform.forward).normalized * speed * distance * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

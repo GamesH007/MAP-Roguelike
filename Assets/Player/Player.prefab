@@ -115,13 +115,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3ed3f13aa06a64eb62a63e29affb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
   speed: 1
+  maxHealth: 10
   fireRate: 1
+  damage: 1
   projectileUP: {fileID: 6452554917715102238, guid: e6937a40b32aa0c4faf03d6b4a6a575e, type: 3}
   projectileDOWN: {fileID: 6452554917715102238, guid: eed6402af55282841817d936e5291c42, type: 3}
   projectileLEFT: {fileID: 6452554917715102238, guid: a13dd4ce0f8acd84fa10d41f4727e99f, type: 3}
   projectileRIGHT: {fileID: 6452554917715102238, guid: 9dd8c99d0adcf964baa52a550b61c6a7, type: 3}
   ShotSpeed: 1
+  roomDistance: 2.3
+  cameraDistanceY: 11
+  cameraDistanceX: 25
 --- !u!50 &612293702843378273
 Rigidbody2D:
   serializedVersion: 4
@@ -135,8 +141,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 1000
+  m_AngularDrag: 1000
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0

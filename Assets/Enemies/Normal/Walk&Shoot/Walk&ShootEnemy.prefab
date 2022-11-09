@@ -117,8 +117,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1000
+  m_AngularDrag: 1000
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9d91b3ad2c5394283b6ca7af693952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectDamage: 1
   EnProjDown: {fileID: 6452554917715102238, guid: 7fcb9feecbce4114f97599ebf0c50f7b, type: 3}
   EnProjUp: {fileID: 6452554917715102238, guid: c51c22fe24c956049a7c8fc31d81156e, type: 3}
   EnProjRight: {fileID: 6452554917715102238, guid: 61a7978864866404a8105db7576f5897, type: 3}

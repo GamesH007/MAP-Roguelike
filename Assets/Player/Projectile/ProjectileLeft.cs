@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ProjectileLeft : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     public float speed = 1;
     private float distance = 2.5f;
 
@@ -18,7 +20,7 @@ public class ProjectileLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x - distance * speed * Time.deltaTime, transform.position.y);
+        rb.AddForce(-transform.right * distance * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

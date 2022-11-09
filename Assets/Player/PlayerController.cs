@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody2D rb;
+
     public float speed = 1;
-    private float distance = 5f;
+    private float distance = 2000f;
 
     public float maxHealth = 10;
     private float currentHp;
@@ -60,19 +63,19 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed * Time.deltaTime);
+            rb.AddForce((transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed * Time.deltaTime);
+            rb.AddForce((-transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position = new Vector2(transform.position.x - distance * speed * Time.deltaTime, transform.position.y);
+            rb.AddForce((-transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position = new Vector2(transform.position.x + distance * speed * Time.deltaTime, transform.position.y);
+            rb.AddForce((transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         if (currentHp <= 0)

@@ -32,7 +32,7 @@ public class FlyingProjectileScript : MonoBehaviour
     void Update()
     {
         transform.rotation = projectRotation;
-        Projectile_Rigidbody.velocity = direction * speed * distance * Time.deltaTime;
+        Projectile_Rigidbody.AddForce((transform.forward).normalized * speed * distance * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

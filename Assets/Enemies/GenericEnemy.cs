@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GenericEnemy : MonoBehaviour
 {
+    private Rigidbody2D rb;
+
     public float speed = 1;
     private float distance = 2.5f;
 
@@ -19,6 +21,7 @@ public class GenericEnemy : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         currentHp = maxHealth;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,19 +29,19 @@ public class GenericEnemy : MonoBehaviour
     {
         if (player.transform.position.x > transform.position.x)
         {
-            transform.position = new Vector2(transform.position.x + distance * speed * Time.deltaTime, transform.position.y);
+            rb.AddForce((transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (player.transform.position.x < transform.position.x)
         {
-            transform.position = new Vector2(transform.position.x - distance * speed * Time.deltaTime, transform.position.y);
+            rb.AddForce((-transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (player.transform.position.y > transform.position.y)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + distance * speed * Time.deltaTime);
+            rb.AddForce((transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
         if (player.transform.position.y < transform.position.y)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - distance * speed * Time.deltaTime);
+            rb.AddForce((-transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
         }
 
         if (currentHp <= 0)

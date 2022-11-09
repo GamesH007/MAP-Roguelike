@@ -6,6 +6,7 @@ public class EnemyProjectileLeft : MonoBehaviour
 {
     public float speed = 1;
     private float distance = 2.5f;
+    public Rigidbody2D rb;
 
     public float damage = 1;
 
@@ -18,7 +19,7 @@ public class EnemyProjectileLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector2(transform.position.x - distance * speed, transform.position.y);
+        rb.AddForce(-transform.right * distance * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
