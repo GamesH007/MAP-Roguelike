@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
 
+    public float roomDistance = 2.3f;
+    public float cameraDistanceY = 11;
+    public float cameraDistanceX = 25;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,5 +113,29 @@ public class PlayerController : MonoBehaviour
             nextShotTime = Time.time + (cooldown / fireRate);
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "DoorUp")
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y + roomDistance);
+            Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y + cameraDistanceY);
+        }
+        if (collision.gameObject.tag == "DoorDown")
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y - roomDistance);
+            Camera.main.transform.position = new Vector2(transform.position.x, transform.position.y - cameraDistanceY);
+        }
+        if (collision.gameObject.tag == "DoorRight")
+        {
+            transform.position = new Vector2(transform.position.x + roomDistance, transform.position.y);
+            Camera.main.transform.position = new Vector2(transform.position.x + cameraDistanceX, transform.position.y);
+        }
+        if (collision.gameObject.tag == "DoorLeft")
+        {
+            transform.position = new Vector2(transform.position.x - roomDistance, transform.position.y);
+            Camera.main.transform.position = new Vector2(transform.position.x - cameraDistanceX, transform.position.y);
+        }
     }
 }

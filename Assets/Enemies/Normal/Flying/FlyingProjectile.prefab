@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4850991911104581110}
   - component: {fileID: 5369217648410625024}
-  - component: {fileID: 3295954597369965634}
   - component: {fileID: -2333897239310159052}
   - component: {fileID: 6610475465445594941}
+  - component: {fileID: 1612919513435488797}
   m_Layer: 9
   m_Name: FlyingProjectile
-  m_TagString: Untagged
+  m_TagString: FlyingProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5116401880599566070}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.8, y: -0.29, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3295954597369965634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5116401880599566070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7008c02ab51b6a849bb5faa6811b0b5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 50
-  damage: 1
-  direction: {x: -4.1307263, y: -0.13373303}
-  Turret: {fileID: 2525782428752312812, guid: 1c4ff5bcff58d924695a0261a4653e5c, type: 3}
 --- !u!50 &-2333897239310159052
 Rigidbody2D:
   serializedVersion: 4
@@ -140,3 +124,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1612919513435488797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116401880599566070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4faef0933f0d5b34c94d9245cb307c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  damage: 1
+  direction: {x: 4.4406533, y: -2.2847567}
+  Flyer: {fileID: 615750293624288586, guid: 1c4ff5bcff58d924695a0261a4653e5c, type: 3}

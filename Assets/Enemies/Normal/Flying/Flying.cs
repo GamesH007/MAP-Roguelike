@@ -10,6 +10,8 @@ public class Flying : MonoBehaviour
     public GameObject target;
     public bool detected = false;
 
+    private Vector2 targetPos;
+
     public float projectileDamage = 1;
 
     public Vector2 Direction;
@@ -30,9 +32,9 @@ public class Flying : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        flyingProjectile.direction = Direction;
+        //flyingProjectile.direction = Direction;
 
-        Vector2 targetPos = target.transform.position;
+        targetPos = target.transform.position;
 
         Direction = targetPos - (Vector2)transform.position;
 

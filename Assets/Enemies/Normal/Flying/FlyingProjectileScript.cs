@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
 
 public class FlyingProjectileScript : MonoBehaviour
 {
@@ -20,7 +23,7 @@ public class FlyingProjectileScript : MonoBehaviour
     void Start()
     {
         Projectile_Rigidbody = GetComponent<Rigidbody2D>();
-        projectRotation = transform.rotation * Quaternion.Euler(direction);
+        projectRotation = Quaternion.Euler(transform.rotation.z * direction);
 
         Destroy(gameObject, 5);
     }
