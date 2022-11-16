@@ -7,7 +7,7 @@ public class ProjectileDown : MonoBehaviour
     public Rigidbody2D rb;
 
     public float speed = 1;
-    private float distance = 2.5f;
+    private float distance = 50000;
 
     public float damage = 1;
 

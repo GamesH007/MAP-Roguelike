@@ -95,25 +95,25 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.up;
-            Instantiate(projectileUP, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.DownArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.down;
-            Instantiate(projectileDOWN, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileDOWN, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.left;
-            Instantiate(projectileLEFT, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileLEFT, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.RightArrow) && Time.time > nextShotTime)
         {
             _rotation = Vector2.right;
-            Instantiate(projectileRIGHT, transform.position, Quaternion.Euler(_rotation));
+            Instantiate(projectileRIGHT, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
 
