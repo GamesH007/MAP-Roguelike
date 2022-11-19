@@ -1,29 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class FlyingProjectileScript : MonoBehaviour
+public class TurretBossProjectileScript : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 2.5f;
+    private float distance = 50000f;
 
     public float damage = 1;
 
     Rigidbody2D Projectile_Rigidbody;
 
-    public Vector2 direction;
-
-    public GameObject Flyer;
-    private Quaternion projectRotation;
+    public float direction;
+    private Quaternion projectileRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         Projectile_Rigidbody = GetComponent<Rigidbody2D>();
-        projectRotation = Quaternion.Euler(transform.rotation.z * direction);
 
         Destroy(gameObject, 5);
     }
@@ -31,7 +26,7 @@ public class FlyingProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = projectRotation;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, direction));
         Projectile_Rigidbody.AddForce(transform.up.normalized * speed * distance * Time.deltaTime);
     }
 

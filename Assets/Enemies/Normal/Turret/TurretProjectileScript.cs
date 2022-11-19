@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurretProjectileScript : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 2.5f;
+    private float distance = 500000f;
 
     public float damage = 1;
 
