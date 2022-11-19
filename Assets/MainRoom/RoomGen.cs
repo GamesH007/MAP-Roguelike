@@ -123,15 +123,15 @@ public class RoomGen : MonoBehaviour
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
                 }
                 if (map[i, z] == 2)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
                 }
                 if (map[i, z] == 3)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
                 }
             }
         }
