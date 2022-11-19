@@ -9,6 +9,7 @@ TagManager:
   - DoorLeft
   - DoorRight
   - DoorUp
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Projectile
   - EnemyProjectile
   - Wall
-  - 
+  - Door
   - 
   - 
   - 
