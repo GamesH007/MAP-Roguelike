@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurretBossScript : MonoBehaviour
@@ -14,9 +18,10 @@ public class TurretBossScript : MonoBehaviour
 
     public float cooldown = 2f;
     private float nextShotTime;
-    private float rotation;
+    public float rotation;
     int rnAttack = 0;
     int attacked = 0;
+    float dist = 0.5f;
 
     public GameObject turret;
 
@@ -43,12 +48,12 @@ public class TurretBossScript : MonoBehaviour
         if (rayInfo == true && rayInfo.collider.gameObject.tag == "Player")
         {
             detected = true;
-            turret.GetComponent<SpriteRenderer>().color = Color.red;
+            turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
         }
         if (rayInfo == false)
         {
             detected = false;
-            turret.GetComponent<SpriteRenderer>().color = Color.green;
+            turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.green;
         }
 
         
@@ -56,8 +61,8 @@ public class TurretBossScript : MonoBehaviour
         {
             for (attacked = 0; attacked < 1;)
             {
-                rotation = transform.rotation.z;
-                rnAttack = Random.Range(0, 2);
+                rotation = 0;
+                rnAttack = UnityEngine.Random.Range(0, 2);
                 FireType(rnAttack);
             }
         }
@@ -67,6 +72,7 @@ public class TurretBossScript : MonoBehaviour
     {
         if (x == 0)
         {
+            rotation = 0;
             //circle
             for (int i = 0; i < 8; i++)
             {
@@ -75,23 +81,26 @@ public class TurretBossScript : MonoBehaviour
                 rotation += 45;
             }
             attacked = 1;
+            rotation = 0;
             nextShotTime = Time.time + cooldown;
         }
         if (x == 1)
         {
+            rotation = 0;
             //tenticle circle
 
             for (int i = 0; i < 6; i++)
             {
                 for (int e = 0; e < 3; e++)
-                {
-                    Instantiate(TurretProjectile, transform.position + new Vector3(0.0015f, 0.0015f, 0), transform.rotation);
+                {                    
+                    Instantiate(TurretProjectile, transform.position, transform.rotation);
                     turretProjectile.direction = rotation;
-                    rotation += 15;
+                    rotation += 30;
                 }
                 rotation += 60;
             }
             attacked = 1;
+            rotation *= 0;
             nextShotTime = Time.time + cooldown;
         }
         return attacked;
