@@ -21,16 +21,21 @@ public class TurretBossScript : MonoBehaviour
     public float rotation;
     int rnAttack = 0;
     int attacked = 0;
-    float dist = 0.5f;
 
     public GameObject turret;
 
     public GameObject TurretProjectile;
     TurretBossProjectileScript turretProjectile;
 
+    public float maxHealth = 10;
+    private float currentHp;
+
+    private float collisionDamage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentHp = maxHealth;
         turretProjectile = TurretProjectile.GetComponent<TurretBossProjectileScript>();
         target = GameObject.FindWithTag("Player");
     }
@@ -109,5 +114,18 @@ public class TurretBossScript : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        currentHp -= dmg;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out PlayerController target))
+        {
+            target.TakeDamage(collisionDamage);
+        }
     }
 }
