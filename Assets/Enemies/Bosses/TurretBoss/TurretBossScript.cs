@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TurretBossScript : MonoBehaviour
@@ -43,23 +39,23 @@ public class TurretBossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turretProjectile.damage = projectileDamage;
-        Vector2 targetPos = target.transform.position;
+        //turretProjectile.damage = projectileDamage;
+        //Vector2 targetPos = target.transform.position;
 
-        Direction = targetPos - (Vector2)transform.position;
+        //Direction = targetPos - (Vector2)transform.position;
 
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, range);
+        //RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, range);
 
-        if (rayInfo == true && rayInfo.collider.gameObject.tag == "Player")
-        {
-            detected = true;
-            turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
-        }
-        if (rayInfo == false)
-        {
-            detected = false;
-            turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.green;
-        }
+        //if (rayInfo == true && rayInfo.collider.gameObject.tag == "Player")
+        //{
+        //    detected = true;
+        //    turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
+        //}
+        //if (rayInfo == false)
+        //{
+        //    detected = false;
+        //    turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.green;
+        //}
 
         
         if (Time.time > nextShotTime)
@@ -67,7 +63,8 @@ public class TurretBossScript : MonoBehaviour
             for (attacked = 0; attacked < 1;)
             {
                 rotation = 0;
-                rnAttack = UnityEngine.Random.Range(0, 2);
+                //rnAttack = UnityEngine.Random.Range(0, 2);
+                rnAttack = 1;
                 FireType(rnAttack);
             }
         }
@@ -91,16 +88,28 @@ public class TurretBossScript : MonoBehaviour
         }
         if (x == 1)
         {
-            rotation = 0;
+            rotation = Random.Range(0, 90);
             //tenticle circle
-
             for (int i = 0; i < 6; i++)
             {
+                ///* Distance around the circle */
+                //var radians = 2 * Mathf.PI / 6 * i;
+
+                ///* Get the vector direction */
+                //var vertical = MathF.Sin(radians);
+                //var horizontal = MathF.Cos(radians);
+
+                //var spawnDir = new Vector3(horizontal, vertical, 0);
+
+               
                 for (int e = 0; e < 3; e++)
-                {                    
+                {
+                    ///* Get the spawn position */
+                    //var spawnPos = transform.position + spawnDir * (0.2f * e); // Radius is just the distance away from the point
+
                     Instantiate(TurretProjectile, transform.position, transform.rotation);
                     turretProjectile.direction = rotation;
-                    rotation += 30;
+                    rotation += 20;
                 }
                 rotation += 60;
             }

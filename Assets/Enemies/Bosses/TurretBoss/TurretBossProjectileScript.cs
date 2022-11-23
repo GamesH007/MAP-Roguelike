@@ -11,6 +11,7 @@ public class TurretBossProjectileScript : MonoBehaviour
     public float damage = 1;
 
     Rigidbody2D Projectile_Rigidbody;
+    public GameObject parent;
 
     public float direction;
     private Quaternion projectileRotation;

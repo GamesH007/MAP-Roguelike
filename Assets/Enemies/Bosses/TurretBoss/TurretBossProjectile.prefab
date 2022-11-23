@@ -138,4 +138,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   damage: 1
+  parent: {fileID: 596319982946200776, guid: 56617ae7df179544e91dfc4d8fd0bb2e, type: 3}
   direction: 0
