@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float distance = 2000f;
 
     public float maxHealth = 10;
-    private float currentHp;
+    public float currentHp;
 
     public float fireRate = 1f;
     public float damage = 1;
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     ProjectileLeft LeftShot;
     ProjectileRight RightShot;
 
-    public float ShotSpeed = 120;
+    public float shotSpeed = 1.5f;
 
     private Vector2 _rotation;
     private float cooldown = 2f;
@@ -51,10 +51,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DownShot.speed = ShotSpeed;
-        LeftShot.speed = ShotSpeed;
-        RightShot.speed = ShotSpeed;
-        UpShot.speed = ShotSpeed;
+        DownShot.speed = shotSpeed;
+        LeftShot.speed = shotSpeed;
+        RightShot.speed = shotSpeed;
+        UpShot.speed = shotSpeed;
         DownShot.damage = damage;
         LeftShot.damage = damage;
         RightShot.damage = damage;

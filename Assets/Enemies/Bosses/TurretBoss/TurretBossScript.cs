@@ -63,8 +63,7 @@ public class TurretBossScript : MonoBehaviour
             for (attacked = 0; attacked < 1;)
             {
                 rotation = 0;
-                //rnAttack = UnityEngine.Random.Range(0, 2);
-                rnAttack = 1;
+                rnAttack = UnityEngine.Random.Range(0, 2);
                 FireType(rnAttack);
             }
         }
@@ -90,7 +89,7 @@ public class TurretBossScript : MonoBehaviour
         {
             rotation = Random.Range(0, 90);
             //tenticle circle
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 3; i++)
             {
                 ///* Distance around the circle */
                 //var radians = 2 * Mathf.PI / 6 * i;

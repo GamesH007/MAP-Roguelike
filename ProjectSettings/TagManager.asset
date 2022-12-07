@@ -10,6 +10,7 @@ TagManager:
   - DoorRight
   - DoorUp
   - Wall
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - EnemyProjectile
   - Wall
   - Door
-  - 
+  - PowerUp
   - 
   - 
   - 
