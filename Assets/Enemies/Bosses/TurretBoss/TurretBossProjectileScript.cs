@@ -14,7 +14,6 @@ public class TurretBossProjectileScript : MonoBehaviour
     public GameObject parent;
 
     public float direction;
-    private Quaternion projectileRotation;
 
     // Start is called before the first frame update
     void Start()

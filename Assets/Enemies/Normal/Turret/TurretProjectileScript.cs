@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class TurretProjectileScript : MonoBehaviour
     void Start()
     {
         Projectile_Rigidbody = GetComponent<Rigidbody2D>();
-        projectRotation = Quaternion.Euler(transform.rotation.z * direction);
+        
 
         Destroy(gameObject, 5);
     }
@@ -28,7 +29,7 @@ public class TurretProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = projectRotation;
+        transform.up = direction;
         Projectile_Rigidbody.AddForce(transform.up.normalized * speed * distance * Time.deltaTime);
     }
 

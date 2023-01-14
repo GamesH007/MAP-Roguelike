@@ -31,7 +31,7 @@ public class FlyingProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = projectRotation;
+        transform.up = direction;
         Projectile_Rigidbody.AddForce(transform.up.normalized * speed * distance * Time.deltaTime);
     }
 

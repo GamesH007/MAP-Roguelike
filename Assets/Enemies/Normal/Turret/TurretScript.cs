@@ -12,7 +12,7 @@ public class TurretScript : MonoBehaviour
 
     public float projectileDamage = 1;
 
-    private Vector2 Direction;
+    public Vector2 Direction;
 
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
@@ -32,7 +32,6 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //turretProjectile.direction = Direction;
         turretProjectile.damage = projectileDamage;
 
         targetPos = target.transform.position;
@@ -56,7 +55,7 @@ public class TurretScript : MonoBehaviour
         {
             if (Time.time > nextShotTime)
             {
-                Instantiate(TurretProjectile, transform.position, Quaternion.LookRotation(Direction));
+                Instantiate(TurretProjectile, transform.position, Quaternion.Euler(Direction));
                 nextShotTime = Time.time + cooldown;
             }
         }
