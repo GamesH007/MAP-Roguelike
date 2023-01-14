@@ -8,6 +8,8 @@ public class TurretScript : MonoBehaviour
     private GameObject target;
     public bool detected = false;
 
+    private Vector2 targetPos;
+
     public float projectileDamage = 1;
 
     private Vector2 Direction;
@@ -30,31 +32,31 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        turretProjectile.direction = Direction;
+        //turretProjectile.direction = Direction;
         turretProjectile.damage = projectileDamage;
-        Vector2 targetPos = target.transform.position;
+
+        targetPos = target.transform.position;
 
         Direction = targetPos - (Vector2)transform.position;
+
+        turretProjectile.direction = Direction;
 
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, range);
 
         if (rayInfo == true && rayInfo.collider.gameObject.tag == "Player")
         {
             detected = true;
-            turret.GetComponent<SpriteRenderer>().color = Color.red;
         }
         if (rayInfo == false && rayInfo.collider.gameObject.tag != "Player")
         {
             detected = false;
-            turret.GetComponent<SpriteRenderer>().color = Color.green;
         }
 
         if (detected)
         {
-            transform.up = Direction;
             if (Time.time > nextShotTime)
             {
-                Instantiate(TurretProjectile, transform.position, Quaternion.Euler(Direction));
+                Instantiate(TurretProjectile, transform.position, Quaternion.LookRotation(Direction));
                 nextShotTime = Time.time + cooldown;
             }
         }

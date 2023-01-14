@@ -8,7 +8,7 @@ using Vector2 = UnityEngine.Vector2;
 public class FlyingProjectileScript : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 2.5f;
+    private float distance = 62500f;
 
     public float damage = 1;
 
