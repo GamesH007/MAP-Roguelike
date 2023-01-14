@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5600083218938212364}
   - component: {fileID: 5600083218938212361}
   - component: {fileID: 435370460}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: DukeOfFlies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
