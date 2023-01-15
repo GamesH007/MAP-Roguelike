@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
         RightShot = projectileRIGHT.GetComponent<ProjectileRight>();
 
         currentHp = maxHealth;
+
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -90,11 +92,13 @@ public class PlayerController : MonoBehaviour
         if (gamePaused == true)
         {
             Time.timeScale = 0;
+            Cursor.visible = true;
             PauseMenu.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
+            Cursor.visible = false;
             PauseMenu.SetActive(false);
         }
 
