@@ -130,6 +130,7 @@ MonoBehaviour:
   roomDistanceRight: 3
   cameraDistanceY: 11
   cameraDistanceX: 18.5
+  PauseMenu: {fileID: 0}
 --- !u!50 &612293702843378273
 Rigidbody2D:
   serializedVersion: 4

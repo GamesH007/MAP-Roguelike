@@ -36,6 +36,9 @@ public class PlayerController : MonoBehaviour
     public float cameraDistanceY = 11f;
     public float cameraDistanceX = 18.5f;
 
+    public GameObject PauseMenu;
+    bool gamePaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +80,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             rb.AddForce((transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gamePaused = !gamePaused;
+        }
+
+        if (gamePaused == true)
+        {
+            Time.timeScale = 0;
+            PauseMenu.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            PauseMenu.SetActive(false);
         }
 
         if (currentHp <= 0)
