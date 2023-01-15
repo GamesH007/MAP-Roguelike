@@ -11,6 +11,7 @@ TagManager:
   - DoorUp
   - Wall
   - PowerUp
+  - Room
   layers:
   - Default
   - TransparentFX

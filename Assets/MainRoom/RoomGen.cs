@@ -13,27 +13,26 @@ public class RoomGen : MonoBehaviour
     int moveDown = -11;
     public int mSize = 33; // use odd numbers max size is 999 (size of map)
 
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        int[,] map = new int[999,999];
-        Vector2 newPosition = new Vector2(0,0);
-        Quaternion newRotation = new Quaternion(0,0,0,0);
 
-        for (int i = 0; i <mSize; i++)
+    private void Awake()
+    {
+        int[,] map = new int[999, 999];
+        Vector2 newPosition = new Vector2(0, 0);
+        Quaternion newRotation = new Quaternion(0, 0, 0, 0);
+
+        for (int i = 0; i < mSize; i++)
         {
             for (int z = 0; z < mSize; z++)
             {
                 map[i, z] = 0;
             }
         }
-        map = GetVeinDown(map,mSize);
-        map = GetVeinUp(map,mSize);
-        map = GetVeinRight(map,mSize);
-        map = GetVeinLeft(map,mSize);
-        int rn = Random.Range(0,4);
-        if (rn == 0 )
+        map = GetVeinDown(map, mSize);
+        map = GetVeinUp(map, mSize);
+        map = GetVeinRight(map, mSize);
+        map = GetVeinLeft(map, mSize);
+        int rn = Random.Range(0, 4);
+        if (rn == 0)
         {
             for (int i = 0; i < mSize; i++)
             {
@@ -41,7 +40,7 @@ public class RoomGen : MonoBehaviour
                 {
                     map[i, 0] = 3;
                 }
-                
+
             }
             for (int i = 0; i < mSize; i++)
             {
@@ -81,9 +80,9 @@ public class RoomGen : MonoBehaviour
             }
             for (int i = 0; i < mSize; i++)
             {
-                if (map[i , 0] == 1)
+                if (map[i, 0] == 1)
                 {
-                    map[i , 0] = 2;
+                    map[i, 0] = 2;
                 }
             }
         }
@@ -114,7 +113,7 @@ public class RoomGen : MonoBehaviour
         {
             for (int z = 0; z < mSize; z++)
             {
-                
+
                 newPosition[0] = moveRight * i;
                 newPosition[1] = moveDown * z;
                 changeLeft = mSize / 2;
@@ -135,6 +134,129 @@ public class RoomGen : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //int[,] map = new int[999,999];
+        //Vector2 newPosition = new Vector2(0,0);
+        //Quaternion newRotation = new Quaternion(0,0,0,0);
+
+        //for (int i = 0; i <mSize; i++)
+        //{
+        //    for (int z = 0; z < mSize; z++)
+        //    {
+        //        map[i, z] = 0;
+        //    }
+        //}
+        //map = GetVeinDown(map,mSize);
+        //map = GetVeinUp(map,mSize);
+        //map = GetVeinRight(map,mSize);
+        //map = GetVeinLeft(map,mSize);
+        //int rn = Random.Range(0,4);
+        //if (rn == 0 )
+        //{
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[i, 0] == 1)
+        //        {
+        //            map[i, 0] = 3;
+        //        }
+                
+        //    }
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[i, mSize - 1] == 1)
+        //        {
+        //            map[i, mSize - 1] = 2;
+        //        }
+        //    }
+        //}
+        //if (rn == 1)
+        //{
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[0, i] == 1)
+        //        {
+        //            map[0, i] = 3;
+        //        }
+
+        //    }
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[mSize - 1, i] == 1)
+        //        {
+        //            map[mSize - 1, i] = 2;
+        //        }
+        //    }
+        //}
+        //if (rn == 2)
+        //{
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[i, mSize - 1] == 1)
+        //        {
+        //            map[i, mSize - 1] = 3;
+        //        }
+
+        //    }
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[i , 0] == 1)
+        //        {
+        //            map[i , 0] = 2;
+        //        }
+        //    }
+        //}
+        //if (rn == 3)
+        //{
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[mSize - 1, i] == 1)
+        //        {
+        //            map[mSize - 1, i] = 3;
+        //        }
+
+        //    }
+        //    for (int i = 0; i < mSize; i++)
+        //    {
+        //        if (map[0, i] == 1)
+        //        {
+        //            map[0, i] = 2;
+        //        }
+        //    }
+        //}
+
+
+
+        //int changeLeft;
+        //int changeup;
+        //for (int i = 0; i < mSize; i++)
+        //{
+        //    for (int z = 0; z < mSize; z++)
+        //    {
+                
+        //        newPosition[0] = moveRight * i;
+        //        newPosition[1] = moveDown * z;
+        //        changeLeft = mSize / 2;
+        //        newPosition[0] += moveLeft * changeLeft;
+        //        changeup = mSize / 2;
+        //        newPosition[1] += moveUp * changeup;
+        //        if (map[i, z] == 1)
+        //        {
+        //            if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+        //        }
+        //        if (map[i, z] == 2)
+        //        {
+        //            if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+        //        }
+        //        if (map[i, z] == 3)
+        //        {
+        //            if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+        //        }
+        //    }
+        //}
 
     }
     static int[,] GetVeinDown(int[,] r, int mSize)
