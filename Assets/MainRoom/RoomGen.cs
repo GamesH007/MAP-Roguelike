@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class RoomGen : MonoBehaviour
 {
+    public GameObject[] trest = new GameObject[169];
     public GameObject norRoom;
     public GameObject endRoom;
     public GameObject iteRoom;
+
     float moveRight = 18.5f;
     float moveLeft = -18.5f;
     int moveUp = 11;
     int moveDown = -11;
-    public int mSize = 33; // use odd numbers max size is 999 (size of map)
-
-
+    public int mSize = 13; // use odd numbers max size is 55 (size of map)
+    MapGen TransferMap ;
+    public GameObject canvasMap;
+    int[,] map = new int[13, 13];
+    
+    
+         
     private void Awake()
     {
-        int[,] map = new int[999, 999];
+        
+
+        map = new int[13, 13];
         Vector2 newPosition = new Vector2(0, 0);
         Quaternion newRotation = new Quaternion(0, 0, 0, 0);
 
@@ -105,6 +113,28 @@ public class RoomGen : MonoBehaviour
             }
         }
 
+        GameObject[,] ObjektMapa = new GameObject[13, 13];
+        int l = 0;
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 13; j++)
+            {
+                ObjektMapa[i, j] = trest[l];
+                l++;
+            }
+
+        }
+        ObjektMapa[5, 5].SetActive(true);
+        for (int i = 12; i > -1; i--)
+        {
+            for (int j = 12; j > -1; j--)
+            {
+                if (map[i,j] != 0 )
+                {
+                    ObjektMapa[j, i].SetActive(true);
+                }
+            }
+        }
 
 
         int changeLeft;
@@ -134,11 +164,14 @@ public class RoomGen : MonoBehaviour
                 }
             }
         }
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        
+       
         //int[,] map = new int[999,999];
         //Vector2 newPosition = new Vector2(0,0);
         //Quaternion newRotation = new Quaternion(0,0,0,0);
@@ -163,7 +196,7 @@ public class RoomGen : MonoBehaviour
         //        {
         //            map[i, 0] = 3;
         //        }
-                
+
         //    }
         //    for (int i = 0; i < mSize; i++)
         //    {
@@ -236,7 +269,7 @@ public class RoomGen : MonoBehaviour
         //{
         //    for (int z = 0; z < mSize; z++)
         //    {
-                
+
         //        newPosition[0] = moveRight * i;
         //        newPosition[1] = moveDown * z;
         //        changeLeft = mSize / 2;

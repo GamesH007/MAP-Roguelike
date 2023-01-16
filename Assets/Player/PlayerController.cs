@@ -5,13 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameObject[] hearts = new GameObject[20];
     public Rigidbody2D rb;
 
     public float speed = 1;
     private float distance = 2000f;
 
-    public float maxHealth = 10;
-    public float currentHp;
+    public int maxHealth = 10;
+    public int currentHp;
 
     public float fireRate = 1f;
     public float damage = 1;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         DownShot.speed = shotSpeed;
         LeftShot.speed = shotSpeed;
         RightShot.speed = shotSpeed;
@@ -110,6 +112,8 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
+        
+        hearts[currentHp].SetActive(false);
         currentHp -= dmg;
     }
 
