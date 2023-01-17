@@ -8,7 +8,7 @@ public class EnemyProjectileLeft : MonoBehaviour
     private float distance = 2.5f;
     public Rigidbody2D rb;
 
-    public float damage = 1;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()

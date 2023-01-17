@@ -10,7 +10,7 @@ public class FlyingProjectileScript : MonoBehaviour
     public float speed = 1;
     private float distance = 62500f;
 
-    public float damage = 1;
+    public int damage = 1;
 
     Rigidbody2D Projectile_Rigidbody;
 

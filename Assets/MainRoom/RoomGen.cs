@@ -9,10 +9,10 @@ public class RoomGen : MonoBehaviour
     public GameObject endRoom;
     public GameObject iteRoom;
 
-    float moveRight = 18.5f;
-    float moveLeft = -18.5f;
-    int moveUp = 11;
-    int moveDown = -11;
+    float moveRight = 24.5f;
+    float moveLeft = -24.5f;
+    int moveUp = 17;
+    int moveDown = -17;
     public int mSize = 13; // use odd numbers max size is 55 (size of map)
     MapGen TransferMap ;
     public GameObject canvasMap;
@@ -124,7 +124,7 @@ public class RoomGen : MonoBehaviour
             }
 
         }
-        ObjektMapa[5, 5].SetActive(true);
+        ObjektMapa[6, 6].SetActive(true);
         for (int i = 12; i > -1; i--)
         {
             for (int j = 12; j > -1; j--)

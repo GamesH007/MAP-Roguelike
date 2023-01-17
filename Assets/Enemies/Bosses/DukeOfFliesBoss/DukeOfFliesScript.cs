@@ -16,7 +16,7 @@ public class DukeOfFliesScript : MonoBehaviour
     public float maxHealth = 10;
     private float currentHp;
 
-    private float collisionDamage = 1;
+    private int collisionDamage = 1;
 
     public Vector3 rotation;
 

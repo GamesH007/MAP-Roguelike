@@ -32,10 +32,10 @@ public class PlayerController : MonoBehaviour
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
 
-    public float roomDistanceUp = 3f;
-    public float roomDistanceRight = 3f;
-    public float cameraDistanceY = 11f;
-    public float cameraDistanceX = 18.5f;
+    public float roomDistanceUp = 12f;
+    public float roomDistanceRight = 12f;
+    public float cameraDistanceY = 17f;
+    public float cameraDistanceX = 24.5f;
 
     public GameObject PauseMenu;
     bool gamePaused = false;
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float dmg)
+    public void TakeDamage(int dmg)
     {
         
         hearts[currentHp].SetActive(false);

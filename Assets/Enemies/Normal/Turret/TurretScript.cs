@@ -10,7 +10,7 @@ public class TurretScript : MonoBehaviour
 
     private Vector2 targetPos;
 
-    public float projectileDamage = 1;
+    public int projectileDamage = 1;
 
     public Vector2 Direction;
 

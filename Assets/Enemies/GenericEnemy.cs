@@ -14,7 +14,7 @@ public class GenericEnemy : MonoBehaviour
     public float maxHealth = 10;
     private float currentHp;
 
-    private float collisionDamage = 1;
+    private int collisionDamage = 1;
 
     // Start is called before the first frame update
     void Start()

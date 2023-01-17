@@ -8,7 +8,7 @@ public class TurretBossScript : MonoBehaviour
     private GameObject target;
     public bool detected = false;
 
-    public float projectileDamage = 1;
+    public int projectileDamage = 1;
 
     private Vector2 Direction;
 
@@ -26,7 +26,7 @@ public class TurretBossScript : MonoBehaviour
     public float maxHealth = 10;
     private float currentHp;
 
-    private float collisionDamage = 1;
+    private int collisionDamage = 1;
 
     // Start is called before the first frame update
     void Start()

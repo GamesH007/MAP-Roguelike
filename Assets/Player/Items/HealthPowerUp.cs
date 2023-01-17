@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthPowerUp : MonoBehaviour
 {
-    float healthUp = 10;
+    int healthUp = 10;
     GameObject player;
     PlayerController stats;
 

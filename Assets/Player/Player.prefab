@@ -115,6 +115,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3ed3f13aa06a64eb62a63e29affb51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rb: {fileID: 612293702843378273}
   speed: 1
   maxHealth: 10
@@ -126,10 +147,10 @@ MonoBehaviour:
   projectileLEFT: {fileID: 6452554917715102238, guid: a13dd4ce0f8acd84fa10d41f4727e99f, type: 3}
   projectileRIGHT: {fileID: 6452554917715102238, guid: 9dd8c99d0adcf964baa52a550b61c6a7, type: 3}
   shotSpeed: 1.5
-  roomDistanceUp: 4
-  roomDistanceRight: 3
-  cameraDistanceY: 11
-  cameraDistanceX: 18.5
+  roomDistanceUp: 10
+  roomDistanceRight: 9
+  cameraDistanceY: 17
+  cameraDistanceX: 24.5
   PauseMenu: {fileID: 0}
 --- !u!50 &612293702843378273
 Rigidbody2D:

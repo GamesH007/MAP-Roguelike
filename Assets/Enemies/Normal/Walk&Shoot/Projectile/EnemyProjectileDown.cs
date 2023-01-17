@@ -9,7 +9,7 @@ public class EnemyProjectileDown : MonoBehaviour
     public float speed = 1;
     private float distance = 2.5f;
 
-    public float damage = 1;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
