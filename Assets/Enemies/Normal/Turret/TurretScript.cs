@@ -22,6 +22,8 @@ public class TurretScript : MonoBehaviour
     public GameObject TurretProjectile;
     TurretProjectileScript turretProjectile;
 
+    private int collisionDamage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,5 +66,13 @@ public class TurretScript : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out PlayerController target))
+        {
+            target.TakeDamage(collisionDamage);
+        }
     }
 }

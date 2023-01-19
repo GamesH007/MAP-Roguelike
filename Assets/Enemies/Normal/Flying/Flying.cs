@@ -22,6 +22,8 @@ public class Flying : MonoBehaviour
     public GameObject FlyingProjectile;
     FlyingProjectileScript flyingProjectile;
 
+    private int collisionDamage = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +60,13 @@ public class Flying : MonoBehaviour
                 Instantiate(FlyingProjectile, transform.position, Quaternion.LookRotation(Direction));
                 nextShotTime = Time.time + cooldown;
             }
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out PlayerController target))
+        {
+            target.TakeDamage(collisionDamage);
         }
     }
 }

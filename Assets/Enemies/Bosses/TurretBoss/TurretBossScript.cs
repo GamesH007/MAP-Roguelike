@@ -12,7 +12,7 @@ public class TurretBossScript : MonoBehaviour
 
     private Vector2 Direction;
 
-    public float cooldown = 2f;
+    public float cooldown = 1f;
     private float nextShotTime;
     public float rotation;
     int rnAttack = 0;
@@ -38,26 +38,7 @@ public class TurretBossScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        //turretProjectile.damage = projectileDamage;
-        //Vector2 targetPos = target.transform.position;
-
-        //Direction = targetPos - (Vector2)transform.position;
-
-        //RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, range);
-
-        //if (rayInfo == true && rayInfo.collider.gameObject.tag == "Player")
-        //{
-        //    detected = true;
-        //    turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.red;
-        //}
-        //if (rayInfo == false)
-        //{
-        //    detected = false;
-        //    turret.GetComponent<SpriteRenderer>().color = UnityEngine.Color.green;
-        //}
-
-        
+    {   
         if (Time.time > nextShotTime)
         {
             for (attacked = 0; attacked < 1;)
@@ -91,21 +72,8 @@ public class TurretBossScript : MonoBehaviour
             //tenticle circle
             for (int i = 0; i < 3; i++)
             {
-                ///* Distance around the circle */
-                //var radians = 2 * Mathf.PI / 6 * i;
-
-                ///* Get the vector direction */
-                //var vertical = MathF.Sin(radians);
-                //var horizontal = MathF.Cos(radians);
-
-                //var spawnDir = new Vector3(horizontal, vertical, 0);
-
-               
                 for (int e = 0; e < 3; e++)
                 {
-                    ///* Get the spawn position */
-                    //var spawnPos = transform.position + spawnDir * (0.2f * e); // Radius is just the distance away from the point
-
                     Instantiate(TurretProjectile, transform.position, transform.rotation);
                     turretProjectile.direction = rotation;
                     rotation += 20;

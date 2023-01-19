@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,11 +11,9 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     public float speed = 1;
-    private float distance = 2000f;
-
+    private float distance = 3000f;
     public int maxHealth = 10;
     public int currentHp;
-
     public float fireRate = 1f;
     public float damage = 1;
 
@@ -37,8 +37,15 @@ public class PlayerController : MonoBehaviour
     public float cameraDistanceY = 17f;
     public float cameraDistanceX = 24.5f;
 
+    public GameObject Death;
     public GameObject PauseMenu;
     bool gamePaused = false;
+
+    float damageTaken;
+    float damageCool = 0.5f;
+
+    public GameObject[] Stats = new GameObject[4];
+    TextMeshProUGUI[] texts = new TextMeshProUGUI[4];
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +56,11 @@ public class PlayerController : MonoBehaviour
         LeftShot = projectileLEFT.GetComponent<ProjectileLeft>();
         RightShot = projectileRIGHT.GetComponent<ProjectileRight>();
 
+        for (int i = 0; i < Stats.Length; i++)
+        {
+            texts[i] = Stats[i].GetComponent<TextMeshProUGUI>();
+        }
+
         currentHp = maxHealth;
 
         Cursor.visible = false;
@@ -57,7 +69,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         DownShot.speed = shotSpeed;
         LeftShot.speed = shotSpeed;
         RightShot.speed = shotSpeed;
@@ -66,6 +78,11 @@ public class PlayerController : MonoBehaviour
         LeftShot.damage = damage;
         RightShot.damage = damage;
         UpShot.damage = damage;
+
+        texts[0].text = "Damage - " + damage;
+        texts[1].text = "Speed - " + speed;
+        texts[2].text = "Fire rate - " + fireRate;
+        texts[3].text = "Shot speed - " + shotSpeed;
 
         Fire();
 
@@ -104,17 +121,28 @@ public class PlayerController : MonoBehaviour
             PauseMenu.SetActive(false);
         }
 
+        for (int i = currentHp; i > 0; i--)
+        {
+            hearts[i].SetActive(true);
+        }
+
         if (currentHp <= 0)
         {
             Destroy(gameObject);
+            Death.SetActive(true);
+            Cursor.visible = true;
+            Time.timeScale = 0;
         }
     }
 
     public void TakeDamage(int dmg)
     {
-        
-        hearts[currentHp].SetActive(false);
-        currentHp -= dmg;
+        if (Time.time >= damageTaken + damageCool)
+        {
+            hearts[currentHp].SetActive(false);
+            currentHp -= dmg;
+            damageTaken = Time.time;
+        }
     }
 
     private void Fire()

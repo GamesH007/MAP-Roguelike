@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class TurretBossProjectileScript : MonoBehaviour
 {
     public float speed = 1;
-    private float distance = 50000f;
+    private float distance = 75000f;
 
     public int damage = 1;
 
