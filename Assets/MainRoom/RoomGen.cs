@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomGen : MonoBehaviour
 {
     public GameObject[] trest = new GameObject[169];
-    public GameObject norRoom;
+    public GameObject[] norRoom = new GameObject[2];
     public GameObject endRoom;
     public GameObject iteRoom;
 
@@ -14,7 +15,6 @@ public class RoomGen : MonoBehaviour
     int moveUp = 17;
     int moveDown = -17;
     public int mSize = 13; // use odd numbers max size is 55 (size of map)
-    MapGen TransferMap ;
     public GameObject canvasMap;
     int[,] map = new int[13, 13];
     
@@ -132,6 +132,15 @@ public class RoomGen : MonoBehaviour
                 if (map[i,j] != 0 )
                 {
                     ObjektMapa[j, i].SetActive(true);
+                    
+                    if (map[i,j] == 2)
+                    {
+                        ObjektMapa[j, i].GetComponent<Image>().color = Color.yellow;
+                    }
+                    if (map[i, j] == 3)
+                    {
+                        ObjektMapa[j, i].GetComponent<Image>().color = Color.red;
+                    }
                 }
             }
         }
@@ -152,7 +161,7 @@ public class RoomGen : MonoBehaviour
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation); a.transform.parent = gameObject.transform; };
                 }
                 if (map[i, z] == 2)
                 {

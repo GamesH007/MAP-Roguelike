@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 615750293624288629}
   m_Layer: 14
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  maxHealth: 10
+  maxHealth: 3
+  boss: 0
+  powerUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &615750293624288631
 MonoBehaviour:
   m_ObjectHideFlags: 0

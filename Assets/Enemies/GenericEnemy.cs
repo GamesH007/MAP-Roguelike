@@ -14,6 +14,11 @@ public class GenericEnemy : MonoBehaviour
     public float maxHealth = 10;
     private float currentHp;
 
+    public bool boss = false;
+    GameObject liftDown;
+    public GameObject[] powerUps = new GameObject[5];
+    GameObject powerUpsSpawn;
+
     private int collisionDamage = 1;
 
     // Start is called before the first frame update
@@ -22,6 +27,8 @@ public class GenericEnemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         currentHp = maxHealth;
         rb = GetComponent<Rigidbody2D>();
+        liftDown = GameObject.FindWithTag("LowerLevel");
+        powerUpsSpawn = GameObject.FindWithTag("PowerUpsSpawn");
     }
 
     // Update is called once per frame
@@ -47,6 +54,11 @@ public class GenericEnemy : MonoBehaviour
         if (currentHp <= 0)
         {
             Destroy(gameObject);
+            if (boss)
+            {
+                liftDown.SetActive(true);
+                Instantiate(powerUps[Random.Range(0, powerUps.Length)], powerUpsSpawn.transform.position, transform.rotation);
+            }
         }
     }
 

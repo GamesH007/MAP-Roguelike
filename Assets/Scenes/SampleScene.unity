@@ -741,7 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 90642532}
   - component: {fileID: 90642531}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MainRoom
   m_TagString: Room
   m_Icon: {fileID: 0}
@@ -12941,7 +12941,9 @@ MonoBehaviour:
   - {fileID: 438886856}
   - {fileID: 519043344}
   - {fileID: 191357750}
-  norRoom: {fileID: 6815603458050789240, guid: b75a67f5456ed354bbaaf80355e9b5bc, type: 3}
+  norRoom:
+  - {fileID: 6815603458050789240, guid: 53f998c481d39134d85b7ac461445df4, type: 3}
+  - {fileID: 6815603458050789240, guid: b75a67f5456ed354bbaaf80355e9b5bc, type: 3}
   endRoom: {fileID: 1843489265430224048, guid: 38388e589597f7f4c9b8d34e35da166d, type: 3}
   iteRoom: {fileID: 2019111989580217087, guid: 4a311fa474b72ea47989d92d98c0cebd, type: 3}
   mSize: 13

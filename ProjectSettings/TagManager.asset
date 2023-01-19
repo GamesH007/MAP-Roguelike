@@ -12,6 +12,9 @@ TagManager:
   - Wall
   - PowerUp
   - Room
+  - LowerLevel
+  - PowerUpsSpawn
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -28,7 +31,7 @@ TagManager:
   - PowerUp
   - Rocks
   - Flying
-  - 
+  - Rooms
   - 
   - 
   - 

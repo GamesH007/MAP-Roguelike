@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2700011177408402812}
   - component: {fileID: 2700011177408402809}
   - component: {fileID: 41506983539026610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TankEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.8
-  maxHealth: 15
+  maxHealth: 6
+  boss: 0
+  powerUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!70 &41506983539026610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 435370460}
   m_Layer: 14
   m_Name: DukeOfFlies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,13 @@ MonoBehaviour:
   flyerSpawnCooldown: 10
   maxHealth: 10
   rotation: {x: 0, y: 0, z: 0}
+  powerUps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  powerUpsSpawn: {fileID: 0}
 --- !u!114 &435370460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   maxHealth: 10
+  boss: 1
+  powerUps:
+  - {fileID: 3692979931108795607, guid: 0231364375a05ff40adee1ec6c700a57, type: 3}
+  - {fileID: 5140697109291618653, guid: b5e9d522fc5e15a41892da5a3a5a9dd1, type: 3}
+  - {fileID: 1801977999409096255, guid: 1d3ace35992473d4daff4701c5bcf217, type: 3}
+  - {fileID: 1837759758488800024, guid: 765441adbfc740e4e89321aee2cd44fa, type: 3}
+  - {fileID: 8630240337625505816, guid: f60942487b32b2d4287eec8eefcc6ea4, type: 3}
