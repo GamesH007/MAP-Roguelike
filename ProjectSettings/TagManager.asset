@@ -15,6 +15,7 @@ TagManager:
   - LowerLevel
   - PowerUpsSpawn
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX

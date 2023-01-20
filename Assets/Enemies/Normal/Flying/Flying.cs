@@ -24,6 +24,8 @@ public class Flying : MonoBehaviour
 
     private int collisionDamage = 1;
 
+    public GameObject projectRotate;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +36,6 @@ public class Flying : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //flyingProjectile.direction = Direction;
-
         targetPos = target.transform.position;
 
         Direction = targetPos - (Vector2)transform.position;
@@ -55,10 +55,10 @@ public class Flying : MonoBehaviour
 
         if (detected)
         {
-            if (Time.time > nextShotTime)
+            if (Time.time > nextShotTime + cooldown)
             {
-                Instantiate(FlyingProjectile, transform.position, Quaternion.LookRotation(Direction));
-                nextShotTime = Time.time + cooldown;
+                Instantiate(FlyingProjectile, transform.position, Quaternion.Euler(Direction));
+                nextShotTime = Time.time;
             }
         }
     }

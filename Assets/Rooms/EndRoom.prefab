@@ -149,8 +149,8 @@ Transform:
   - {fileID: 6477742634607354827}
   - {fileID: 1586117670641561078}
   - {fileID: 1106846537232846612}
-  - {fileID: 1924356856350846793}
   - {fileID: 4972897344768266802}
+  - {fileID: 5256863998690083629}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -331,6 +331,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 7856798268731602397}
+  active: 0
+  enemies: []
+  bosses: []
+--- !u!1 &4001823484304554986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5256863998690083629}
+  - component: {fileID: 4095527966173215452}
+  m_Layer: 15
+  m_Name: IDK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5256863998690083629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001823484304554986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1924356856350846793}
+  m_Father: {fileID: 1843489265430224062}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4095527966173215452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4001823484304554986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afaab18165a68e647a0a9b542302ca26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpsSpawn: {fileID: 8084353273265796316}
+  enemies: []
+  bosses: []
+  powerUps:
+  - {fileID: 5140697109291618653, guid: b5e9d522fc5e15a41892da5a3a5a9dd1, type: 3}
+  - {fileID: 1801977999409096255, guid: 1d3ace35992473d4daff4701c5bcf217, type: 3}
+  - {fileID: 1837759758488800024, guid: 765441adbfc740e4e89321aee2cd44fa, type: 3}
+  - {fileID: 8630240337625505816, guid: f60942487b32b2d4287eec8eefcc6ea4, type: 3}
+  - {fileID: 3692979931108795607, guid: 0231364375a05ff40adee1ec6c700a57, type: 3}
+  liftDown: {fileID: 6430552806331574754}
 --- !u!1 &4644378857433897670
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +514,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 4769857821293666211}
+  active: 0
+  enemies: []
+  bosses: []
 --- !u!1 &4769857821293666211
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +753,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 5941264387969479889}
+  active: 0
+  enemies: []
+  bosses: []
 --- !u!1 &5730589904643234701
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,13 +924,14 @@ GameObject:
   - component: {fileID: 1924356856350846793}
   - component: {fileID: 5559440613810994807}
   - component: {fileID: 413801638438929448}
+  - component: {fileID: 2580294269409836711}
   m_Layer: 11
   m_Name: Square (4)
   m_TagString: LowerLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1924356856350846793
 Transform:
   m_ObjectHideFlags: 0
@@ -879,8 +944,8 @@ Transform:
   m_LocalScale: {x: 0.075, y: 0.13125001, z: 0.075}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1843489265430224062}
-  m_RootOrder: 9
+  m_Father: {fileID: 5256863998690083629}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5559440613810994807
 SpriteRenderer:
@@ -960,6 +1025,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &2580294269409836711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6430552806331574754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44ce237630d7ee429c2893775abaeb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6647744381338054828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 913161694204379472}
+  active: 0
+  enemies: []
+  bosses: []
 --- !u!1 &7856798268731602397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1285,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4972897344768266802}
-  - component: {fileID: 236340299965312794}
   m_Layer: 0
   m_Name: PowerUpSpawn
   m_TagString: PowerUpsSpawn
@@ -1226,17 +1305,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1843489265430224062}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &236340299965312794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8084353273265796316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44ce237630d7ee429c2893775abaeb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

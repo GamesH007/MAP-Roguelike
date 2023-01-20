@@ -127,6 +127,7 @@ MonoBehaviour:
   projectileDamage: 1
   Direction: {x: 0, y: 0}
   FlyingProjectile: {fileID: 5116401880599566070, guid: cea55e998469f2d49a3558b887eaf258, type: 3}
+  projectRotate: {fileID: 0}
 --- !u!50 &615750293624288628
 Rigidbody2D:
   serializedVersion: 4

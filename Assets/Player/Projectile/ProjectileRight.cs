@@ -29,6 +29,14 @@ public class ProjectileRight : MonoBehaviour
         {
             target.TakeDamage(damage);
         }
+        if (collision.gameObject.TryGetComponent(out TurretBossScript turtar))
+        {
+            turtar.TakeDamage(damage);
+        }
+        if (collision.gameObject.TryGetComponent(out DukeOfFliesScript protar))
+        {
+            protar.TakeDamage(damage);
+        }
         Destroy(gameObject);
     }
 }

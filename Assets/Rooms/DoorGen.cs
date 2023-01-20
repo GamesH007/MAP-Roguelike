@@ -6,7 +6,11 @@ public class DoorGen : MonoBehaviour
 {
     float dis = 20;
     public GameObject door;
-    bool active = false;
+    public  bool active;
+
+    //int EnemiesInRoom = 0;
+    public GameObject[] enemies = null;
+    public GameObject[] bosses = null;
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +32,31 @@ public class DoorGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //RaycastHit2D hit2D = Physics2D.CircleCast(transform.position, dis, -transform.up);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        bosses = GameObject.FindGameObjectsWithTag("Boss");
 
-        //if (hit2D.collider.gameObject.tag == "Enemy")
-        //{
-        //    door.SetActive(false);
-        //}
-        //else
-        //{
-        //    if (active)
-        //    {
-        //        door.SetActive(true);
-        //    }
-        //    else
-        //    {
-        //        door.SetActive(false);
-        //    }
-        //}
+        if (door.transform.parent.name == "EndRoom(Clone)")
+        {
+            if (bosses.Length == 0 && active && enemies.Length == 0)
+            {
+                door.SetActive(true);
+            }
+            else
+            {
+                door.SetActive(false);
+            }
+        }
+        else
+        {
+            if (enemies.Length == 0 && active)
+            {
+                door.SetActive(true);
+            }
+            else
+            {
+                door.SetActive(false);
+            }
+        }
 
         RaycastHit2D rayRooms = Physics2D.Raycast(transform.position, transform.up, dis);
 

@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 596319982946200778}
   - component: {fileID: 596319982946200777}
   - component: {fileID: 5577387733727262553}
-  - component: {fileID: 945082044219801200}
   - component: {fileID: 7956537360066344244}
   m_Layer: 7
   m_Name: TurretBoss
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,6 +107,7 @@ MonoBehaviour:
   turret: {fileID: 596319982946200776}
   TurretProjectile: {fileID: 5116401880599566070, guid: df90df75e689b1f48a9746980f590196, type: 3}
   maxHealth: 10
+  liftDown: {fileID: 1843489265430224048, guid: 38388e589597f7f4c9b8d34e35da166d, type: 3}
 --- !u!50 &5577387733727262553
 Rigidbody2D:
   serializedVersion: 4
@@ -129,27 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &945082044219801200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 596319982946200776}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639ad50def1ff7047adf15efa6d494a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  maxHealth: 10
-  boss: 1
-  powerUps:
-  - {fileID: 3692979931108795607, guid: 0231364375a05ff40adee1ec6c700a57, type: 3}
-  - {fileID: 5140697109291618653, guid: b5e9d522fc5e15a41892da5a3a5a9dd1, type: 3}
-  - {fileID: 1801977999409096255, guid: 1d3ace35992473d4daff4701c5bcf217, type: 3}
-  - {fileID: 1837759758488800024, guid: 765441adbfc740e4e89321aee2cd44fa, type: 3}
-  - {fileID: 8630240337625505816, guid: f60942487b32b2d4287eec8eefcc6ea4, type: 3}
 --- !u!70 &7956537360066344244
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

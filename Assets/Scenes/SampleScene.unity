@@ -6043,6 +6043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 451490724}
+  active: 0
+  enemies: []
 --- !u!1 &632730767
 GameObject:
   m_ObjectHideFlags: 0
@@ -13165,6 +13167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1176918228}
+  active: 0
+  enemies: []
 --- !u!1 &1280841162
 GameObject:
   m_ObjectHideFlags: 0
@@ -16615,6 +16619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1536384832}
+  active: 0
+  enemies: []
 --- !u!1 &1703069055
 GameObject:
   m_ObjectHideFlags: 0
@@ -19325,6 +19331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 1452066814}
+  active: 0
+  enemies: []
 --- !u!1 &1985160887
 GameObject:
   m_ObjectHideFlags: 0

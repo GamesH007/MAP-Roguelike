@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class DukeOfFliesScript : MonoBehaviour
 {
@@ -20,10 +21,6 @@ public class DukeOfFliesScript : MonoBehaviour
 
     public Vector3 rotation;
 
-    GameObject liftDown;
-    public GameObject[] powerUps = new GameObject[5];
-    public GameObject powerUpsSpawn;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +28,6 @@ public class DukeOfFliesScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         int rnRotStart = Random.Range(0, 360);
         rotation = new Vector3(rnRotStart, rnRotStart, rnRotStart);
-        liftDown = GameObject.FindWithTag("LowerLevel");
     }
 
     // Update is called once per frame
@@ -52,8 +48,6 @@ public class DukeOfFliesScript : MonoBehaviour
         if (currentHp <= 0)
         {
             Destroy(gameObject);
-            liftDown.SetActive(true);
-            Instantiate(powerUps[Random.Range(0,powerUps.Length)], powerUpsSpawn.transform.position, transform.rotation);
         }
     }
 

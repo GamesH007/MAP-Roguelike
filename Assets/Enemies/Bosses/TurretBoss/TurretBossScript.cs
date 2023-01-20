@@ -38,7 +38,7 @@ public class TurretBossScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         if (Time.time > nextShotTime)
         {
             for (attacked = 0; attacked < 1;)
@@ -47,6 +47,11 @@ public class TurretBossScript : MonoBehaviour
                 rnAttack = UnityEngine.Random.Range(0, 2);
                 FireType(rnAttack);
             }
+        }
+
+        if (currentHp <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 

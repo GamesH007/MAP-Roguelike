@@ -15,13 +15,11 @@ public class TurretProjectileScript : MonoBehaviour
     public Vector2 direction;
 
     public GameObject Turret;
-    private Quaternion projectRotation;
 
     // Start is called before the first frame update
     void Start()
     {
         Projectile_Rigidbody = GetComponent<Rigidbody2D>();
-        
 
         Destroy(gameObject, 5);
     }

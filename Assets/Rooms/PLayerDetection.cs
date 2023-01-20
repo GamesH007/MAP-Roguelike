@@ -13,6 +13,7 @@ public class PLayerDetection : MonoBehaviour
     Vector2 direction;
 
     bool spawned = false;
+    int enemiesSpawned = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class PLayerDetection : MonoBehaviour
                 for (int i = 0; i < SpawnPoints.Length; i++)
                 {
                     Instantiate(Enemies[Random.Range(0, Enemies.Length)], SpawnPoints[i].transform.position, new Quaternion(0, 0, 0, 0));
+                    enemiesSpawned++;
                 }
                 spawned = true;
             }
