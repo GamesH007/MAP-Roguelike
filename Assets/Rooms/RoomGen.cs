@@ -9,6 +9,7 @@ public class RoomGen : MonoBehaviour
     public GameObject[] norRoom = new GameObject[2];
     public GameObject endRoom;
     public GameObject iteRoom;
+    public GameObject MainRoom;
 
     float moveRight = 24.5f;
     float moveLeft = -24.5f;
@@ -17,12 +18,19 @@ public class RoomGen : MonoBehaviour
     public int mSize = 13; // use odd numbers max size is 55 (size of map)
     public GameObject canvasMap;
     int[,] map = new int[13, 13];
-    
-    
+
+    public Sprite[] Background = null;
+    int back = 0;
+    bool generated = false;
          
     private void Awake()
     {
-        
+        if (!generated)
+        {
+            back = Random.Range(0,Background.Length);
+            MainRoom.GetComponent<SpriteRenderer>().sprite = Background[back];
+            generated = true;
+        }
 
         map = new int[13, 13];
         Vector2 newPosition = new Vector2(0, 0);
@@ -161,15 +169,15 @@ public class RoomGen : MonoBehaviour
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation); a.transform.parent = gameObject.transform; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
                 }
                 if (map[i, z] == 2)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
                 }
                 if (map[i, z] == 3)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
                 }
             }
         }

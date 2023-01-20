@@ -789,8 +789,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d0d20195e171c6b4aade917917ad0859, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -798,7 +798,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!4 &90642532
 Transform:
@@ -809,7 +809,7 @@ Transform:
   m_GameObject: {fileID: 90642530}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.237371}
-  m_LocalScale: {x: 17.5, y: 10, z: 1}
+  m_LocalScale: {x: 17.499998, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1261984608}
@@ -6045,6 +6045,7 @@ MonoBehaviour:
   door: {fileID: 451490724}
   active: 0
   enemies: []
+  bosses: []
 --- !u!1 &632730767
 GameObject:
   m_ObjectHideFlags: 0
@@ -12948,8 +12949,17 @@ MonoBehaviour:
   - {fileID: 6815603458050789240, guid: b75a67f5456ed354bbaaf80355e9b5bc, type: 3}
   endRoom: {fileID: 1843489265430224048, guid: 38388e589597f7f4c9b8d34e35da166d, type: 3}
   iteRoom: {fileID: 2019111989580217087, guid: 4a311fa474b72ea47989d92d98c0cebd, type: 3}
+  MainRoom: {fileID: 90642530}
   mSize: 13
   canvasMap: {fileID: 1719927354}
+  Background:
+  - {fileID: 21300000, guid: d0d20195e171c6b4aade917917ad0859, type: 3}
+  - {fileID: 21300000, guid: 60e9980ccc561f245bf3d97a42593468, type: 3}
+  - {fileID: 21300000, guid: f4ece9265ef0ecf4c90fb3a90262cd12, type: 3}
+  - {fileID: 21300000, guid: f292add4cd6a8154788cdd70dde1af95, type: 3}
+  - {fileID: 21300000, guid: 73c042581a43e0b449a295c9b6d2610a, type: 3}
+  - {fileID: 21300000, guid: 8d0ec1e89ea125142bbd60f64f3844f5, type: 3}
+  - {fileID: 21300000, guid: 14a395ce3dde95044ab18d95ee276745, type: 3}
 --- !u!4 &1257226926
 Transform:
   m_ObjectHideFlags: 0
@@ -13169,6 +13179,7 @@ MonoBehaviour:
   door: {fileID: 1176918228}
   active: 0
   enemies: []
+  bosses: []
 --- !u!1 &1280841162
 GameObject:
   m_ObjectHideFlags: 0
@@ -16621,6 +16632,7 @@ MonoBehaviour:
   door: {fileID: 1536384832}
   active: 0
   enemies: []
+  bosses: []
 --- !u!1 &1703069055
 GameObject:
   m_ObjectHideFlags: 0
@@ -19333,6 +19345,7 @@ MonoBehaviour:
   door: {fileID: 1452066814}
   active: 0
   enemies: []
+  bosses: []
 --- !u!1 &1985160887
 GameObject:
   m_ObjectHideFlags: 0
