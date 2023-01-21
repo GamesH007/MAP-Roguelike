@@ -139,13 +139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxHealth: 4
-  boss: 0
-  powerUps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1847171719790380008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a9d91b3ad2c5394283b6ca7af693952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnProjDown: {fileID: 6452554917715102238, guid: 7fcb9feecbce4114f97599ebf0c50f7b, type: 3}
+  Damage: 1
   EnProjUp: {fileID: 6452554917715102238, guid: c51c22fe24c956049a7c8fc31d81156e, type: 3}
-  EnProjRight: {fileID: 6452554917715102238, guid: 61a7978864866404a8105db7576f5897, type: 3}
-  EnProjLeft: {fileID: 6452554917715102238, guid: ddbe52d28f63b4c418e7315ef066605b, type: 3}
+  EnProjDown: {fileID: 6452554917715102238, guid: 9a48037248f92cb4695d124a5078d256, type: 3}
+  EnProjLeft: {fileID: 6452554917715102238, guid: 196a848773412614cb646b6383fb937f, type: 3}
+  EnProjRight: {fileID: 6452554917715102238, guid: 6157fe61b1e23af4e95d538efa872416, type: 3}

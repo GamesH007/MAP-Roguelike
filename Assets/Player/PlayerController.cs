@@ -18,13 +18,7 @@ public class PlayerController : MonoBehaviour
     public float damage = 1;
 
     public GameObject projectileUP;
-    public GameObject projectileDOWN;
-    public GameObject projectileLEFT;
-    public GameObject projectileRIGHT;
-    ProjectileDown  DownShot;
     ProjectileUp UpShot;
-    ProjectileLeft LeftShot;
-    ProjectileRight RightShot;
 
     public float shotSpeed = 1.5f;
 
@@ -50,11 +44,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        DownShot = projectileDOWN.GetComponent<ProjectileDown>();
         UpShot = projectileUP.GetComponent<ProjectileUp>();
-        LeftShot = projectileLEFT.GetComponent<ProjectileLeft>();
-        RightShot = projectileRIGHT.GetComponent<ProjectileRight>();
 
         for (int i = 0; i < Stats.Length; i++)
         {
@@ -68,15 +58,8 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-
-        DownShot.speed = shotSpeed;
-        LeftShot.speed = shotSpeed;
-        RightShot.speed = shotSpeed;
+    {        
         UpShot.speed = shotSpeed;
-        DownShot.damage = damage;
-        LeftShot.damage = damage;
-        RightShot.damage = damage;
         UpShot.damage = damage;
 
         texts[0].text = "Damage - " + damage;
@@ -149,26 +132,26 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) && Time.time > nextShotTime)
         {
-            _rotation = Vector2.up;
+            UpShot.rot = transform.up;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.DownArrow) && Time.time > nextShotTime)
         {
-            _rotation = Vector2.down;
-            Instantiate(projectileDOWN, transform.position, transform.rotation);
+            UpShot.rot = -transform.up;
+            Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time > nextShotTime)
         {
-            _rotation = Vector2.left;
-            Instantiate(projectileLEFT, transform.position, transform.rotation);
+            UpShot.rot = -transform.right;
+            Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.RightArrow) && Time.time > nextShotTime)
         {
-            _rotation = Vector2.right;
-            Instantiate(projectileRIGHT, transform.position, transform.rotation);
+            UpShot.rot = transform.right;
+            Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
 

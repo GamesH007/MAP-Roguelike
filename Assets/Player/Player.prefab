@@ -144,9 +144,6 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   projectileUP: {fileID: 6452554917715102238, guid: e6937a40b32aa0c4faf03d6b4a6a575e, type: 3}
-  projectileDOWN: {fileID: 6452554917715102238, guid: eed6402af55282841817d936e5291c42, type: 3}
-  projectileLEFT: {fileID: 6452554917715102238, guid: a13dd4ce0f8acd84fa10d41f4727e99f, type: 3}
-  projectileRIGHT: {fileID: 6452554917715102238, guid: 9dd8c99d0adcf964baa52a550b61c6a7, type: 3}
   shotSpeed: 1.5
   roomDistanceUp: 10
   roomDistanceRight: 9

@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLeft : MonoBehaviour
+public class ProjectileUp : MonoBehaviour
 {
     public Rigidbody2D rb;
 
     public float speed = 1;
-    private float distance = 50000;
+    private float distance = 75000f;
 
     public float damage = 1;
+
+    public Vector3 rot;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class ProjectileLeft : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce(-transform.right * distance * speed * Time.deltaTime);
+        rb.AddForce(rot * distance * speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

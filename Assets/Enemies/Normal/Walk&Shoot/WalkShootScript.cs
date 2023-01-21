@@ -1,25 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class WalkShootScript : MonoBehaviour
 {
     GameObject player;
 
-    private Vector2 rotation;
     private float cooldown = 2f;
     private float nextShotTime = 0.15f;
+    public int Damage = 1;
 
     private float playerPosX;
     private float playerPosY;
     private float thisPosX;
     private float thisPosY;
 
-    public GameObject EnProjDown;
     public GameObject EnProjUp;
-    public GameObject EnProjRight;
+    public GameObject EnProjDown;
     public GameObject EnProjLeft;
+    public GameObject EnProjRight;
 
     private Vector2 Direction;
 
@@ -54,7 +53,7 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjUp, transform.position, Quaternion.Euler(rotation));
+                Instantiate(EnProjUp, transform.position, transform.rotation);
                 nextShotTime = Time.time + cooldown;
             }
         }
@@ -62,7 +61,7 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjDown, transform.position, Quaternion.Euler(rotation));
+                Instantiate(EnProjDown, transform.position, transform.rotation);
                 nextShotTime = Time.time + cooldown;
             }
         }
@@ -70,7 +69,7 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjRight, transform.position, Quaternion.Euler(rotation));
+                Instantiate(EnProjRight, transform.position, transform.rotation);
                 nextShotTime = Time.time + cooldown;
             }
         }
@@ -78,7 +77,7 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjLeft, transform.position, Quaternion.Euler(rotation));
+                Instantiate(EnProjLeft, transform.position, transform.rotation);
                 nextShotTime = Time.time + cooldown;
             }
         }

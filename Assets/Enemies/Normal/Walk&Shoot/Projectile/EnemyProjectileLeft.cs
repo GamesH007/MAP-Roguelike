@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyProjectileLeft : MonoBehaviour
 {
-    public float speed = 1;
-    private float distance = 2.5f;
     public Rigidbody2D rb;
+
+    public float speed = 1;
+    private float distance = 75000f;
 
     public int damage = 1;
 
