@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     public GameObject[] hearts = new GameObject[20];
+    public GameObject[] trest = new GameObject[169];
+    public int[] position = new int[2]; // at start 6 6 
     public Rigidbody2D rb;
 
     public float speed = 1;
@@ -159,23 +161,41 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        GameObject[,] ObjektMapa = new GameObject[13, 13];
+        int l = 0;
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 13; j++)
+            {
+                ObjektMapa[i, j] = trest[l];
+                l++;
+            }
+        }
         if (collision.gameObject.tag == "DoorUp")
         {
+            ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
+            ObjektMapa[--position[0],position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x, transform.position.y + roomDistanceUp);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorDown")
         {
+            ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
+            ObjektMapa[++position[0], position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x, transform.position.y - roomDistanceUp);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorRight")
         {
+            ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
+            ObjektMapa[position[0], ++position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x + roomDistanceRight, transform.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorLeft")
         {
+            ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
+            ObjektMapa[position[0], --position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x - roomDistanceRight, transform.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }

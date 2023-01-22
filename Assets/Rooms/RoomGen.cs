@@ -15,8 +15,8 @@ public class RoomGen : MonoBehaviour
     float moveLeft = -24.5f;
     int moveUp = 17;
     int moveDown = -17;
-    public int mSize = 13; // use odd numbers max size is 55 (size of map)
-    public GameObject canvasMap;
+    public int mSize = 13; // use 13 (size of map)
+    
     int[,] map = new int[13, 13];
 
     public Sprite[] Background = null;
@@ -25,12 +25,12 @@ public class RoomGen : MonoBehaviour
          
     private void Awake()
     {
-        if (!generated)
-        {
-            back = Random.Range(0,Background.Length);
-            MainRoom.GetComponent<SpriteRenderer>().sprite = Background[back];
-            generated = true;
-        }
+        //if (!generated)ž
+        //{
+        //    back = Random.Range(0,Background.Length);
+        //    MainRoom.GetComponent<SpriteRenderer>().sprite = Background[back];
+        //    generated = true;
+        //}
 
         map = new int[13, 13];
         Vector2 newPosition = new Vector2(0, 0);
@@ -130,9 +130,9 @@ public class RoomGen : MonoBehaviour
                 ObjektMapa[i, j] = trest[l];
                 l++;
             }
-
         }
         ObjektMapa[6, 6].SetActive(true);
+        ObjektMapa[6, 6].GetComponent<Image>().color = Color.green;
         for (int i = 12; i > -1; i--)
         {
             for (int j = 12; j > -1; j--)
@@ -169,15 +169,15 @@ public class RoomGen : MonoBehaviour
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation);/* a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back];*/ };
                 }
                 if (map[i, z] == 2)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); /*a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back];*/ };
                 }
                 if (map[i, z] == 3)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation);/* a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back];*/ };
                 }
             }
         }
