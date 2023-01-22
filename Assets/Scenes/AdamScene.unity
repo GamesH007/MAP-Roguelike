@@ -11610,20 +11610,21 @@ MonoBehaviour:
   - {fileID: 1804011512}
   - {fileID: 661014982}
   norRoom:
-  - {fileID: 6815603458050789240, guid: 53f998c481d39134d85b7ac461445df4, type: 3}
   - {fileID: 6815603458050789240, guid: b75a67f5456ed354bbaaf80355e9b5bc, type: 3}
+  - {fileID: 6815603458050789240, guid: 53f998c481d39134d85b7ac461445df4, type: 3}
+  - {fileID: 6815603458050789240, guid: d777d4dc9f5f29b4598e1bdfcba83ef0, type: 3}
   endRoom: {fileID: 1843489265430224048, guid: c55a1d27787974f48809bc35e2d67699, type: 3}
   iteRoom: {fileID: 2019111989580217087, guid: 60af76772300b6c4499eb8c6c801dbaa, type: 3}
   MainRoom: {fileID: 1440994216}
   mSize: 13
   Background:
-  - {fileID: 21300000, guid: d0d20195e171c6b4aade917917ad0859, type: 3}
-  - {fileID: 21300000, guid: 60e9980ccc561f245bf3d97a42593468, type: 3}
-  - {fileID: 21300000, guid: f4ece9265ef0ecf4c90fb3a90262cd12, type: 3}
-  - {fileID: 21300000, guid: f292add4cd6a8154788cdd70dde1af95, type: 3}
-  - {fileID: 21300000, guid: 73c042581a43e0b449a295c9b6d2610a, type: 3}
-  - {fileID: 21300000, guid: 8d0ec1e89ea125142bbd60f64f3844f5, type: 3}
-  - {fileID: 21300000, guid: 14a395ce3dde95044ab18d95ee276745, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
+  - {fileID: 21300000, guid: e1a9e38e6c14e8f4abbba8d250dcc705, type: 3}
 --- !u!4 &1171294113
 Transform:
   m_ObjectHideFlags: 0
