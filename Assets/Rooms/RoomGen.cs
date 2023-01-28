@@ -28,7 +28,7 @@ public class RoomGen : MonoBehaviour
         if (!generated)
         {
             back = Random.Range(0, Background.Length);
-            MainRoom.GetComponent<SpriteRenderer>().sprite = Background[back];
+            MainRoom.transform.Find("Background").GetComponent<SpriteRenderer>().sprite = Background[back];
             generated = true;
         }
 
@@ -169,15 +169,30 @@ public class RoomGen : MonoBehaviour
                 newPosition[1] += moveUp * changeup;
                 if (map[i, z] == 1)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation);a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) 
+                    { 
+                        GameObject a = Instantiate(norRoom[Random.Range(0,norRoom.Length)], newPosition, newRotation);
+                        a.transform.parent = gameObject.transform;
+                        a.transform.Find("Background").GetComponent<SpriteRenderer>().sprite = Background[back]; 
+                    }
                 }
                 if (map[i, z] == 2)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(iteRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) 
+                    { 
+                        GameObject a = Instantiate(iteRoom, newPosition, newRotation); 
+                        a.transform.parent = gameObject.transform; 
+                        a.transform.Find("Background").GetComponent<SpriteRenderer>().sprite = Background[back];
+                    }
                 }
                 if (map[i, z] == 3)
                 {
-                    if (i != changeLeft || z != changeup) { GameObject a = Instantiate(endRoom, newPosition, newRotation); a.transform.parent = gameObject.transform; a.GetComponent<SpriteRenderer>().sprite = Background[back]; };
+                    if (i != changeLeft || z != changeup) 
+                    { 
+                        GameObject a = Instantiate(endRoom, newPosition, newRotation);
+                        a.transform.parent = gameObject.transform;
+                        a.transform.Find("Background").GetComponent<SpriteRenderer>().sprite = Background[back]; 
+                    }
                 }
             }
         }
