@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     public float shotSpeed = 1.5f;
 
     private Vector2 _rotation;
-    private float cooldown = 2f;
+    private float cooldown = 1.5f;
     private float nextShotTime = 0.15f;
 
     public float roomDistanceUp = 12f;
@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] Stats = new GameObject[4];
     TextMeshProUGUI[] texts = new TextMeshProUGUI[4];
 
+    Animator a;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
         currentHp = maxHealth;
 
         Cursor.visible = false;
+         a = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -73,19 +76,35 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            rb.AddForce((transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(transform.up.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            a.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rb.AddForce((-transform.up).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            rb.AddForce(-transform.up.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            a.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rb.AddForce((-transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            if (transform.rotation.y == 0)
+            {
+                transform.Rotate(0,180,0);
+            }
+            rb.AddForce(transform.right.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            a.SetBool("Walking", true);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rb.AddForce((transform.right).normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            if (transform.rotation.y != 0)
+            {
+                transform.Rotate(0,-180,0);
+            }
+            rb.AddForce(transform.right.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
+            a.SetBool("Walking", true);
+        }
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.S))
+        {
+            a.SetBool("Walking", false);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -113,6 +132,7 @@ public class PlayerController : MonoBehaviour
 
         if (currentHp <= 0)
         {
+            a.SetBool("Dead", true);
             Destroy(gameObject);
             Death.SetActive(true);
             Cursor.visible = true;

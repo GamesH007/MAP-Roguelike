@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 612293702843378274}
   - component: {fileID: 612293702843378277}
   - component: {fileID: 612293702843378273}
+  - component: {fileID: 2829081088853730519}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -315,7 +316,7 @@ MonoBehaviour:
   fireRate: 1
   damage: 1
   projectileUP: {fileID: 6452554917715102238, guid: e6937a40b32aa0c4faf03d6b4a6a575e, type: 3}
-  shotSpeed: 1.5
+  shotSpeed: 1
   roomDistanceUp: 10
   roomDistanceRight: 9
   cameraDistanceY: 17
@@ -348,3 +349,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &2829081088853730519
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 612293702843378276}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82b335253265d4342b1fbc36b7101b99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
