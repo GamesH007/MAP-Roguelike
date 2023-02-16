@@ -67,7 +67,8 @@ public class GenericEnemy : MonoBehaviour
         if (currentHp <= 0)
         {
             animator.SetBool("Dead", true);
-            Destroy(gameObject);
+            distance = 0;
+            Destroy(gameObject,1);
         }
     }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2700011177408402812}
   - component: {fileID: 2700011177408402809}
   - component: {fileID: 41506983539026610}
+  - component: {fileID: 6910857542116955911}
   m_Layer: 7
   m_Name: TankEnemy
   m_TagString: Enemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5e8252df704516b4dab73b811b6cf890, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 07b3733bc4c0b1641895315e705a340d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,13 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.8
   maxHealth: 6
-  boss: 0
-  powerUps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!70 &41506983539026610
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -145,3 +139,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -1.03}
   m_Size: {x: 4.77, y: 7.47}
   m_Direction: 0
+--- !u!95 &6910857542116955911
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700011177408402815}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76b613a4283873a4cad02e36d015215b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -28,12 +28,15 @@ public class TurretBossScript : MonoBehaviour
 
     private int collisionDamage = 1;
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHp = maxHealth;
         turretProjectile = TurretProjectile.GetComponent<TurretBossProjectileScript>();
         target = GameObject.FindWithTag("Player");
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,7 +54,9 @@ public class TurretBossScript : MonoBehaviour
 
         if (currentHp <= 0)
         {
-            Destroy(gameObject);
+            nextShotTime = float.MaxValue;
+            animator.SetBool("Dead", true);
+            Destroy(gameObject, 1);
         }
     }
 

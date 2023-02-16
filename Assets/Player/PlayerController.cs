@@ -133,7 +133,6 @@ public class PlayerController : MonoBehaviour
         if (currentHp <= 0)
         {
             a.SetBool("Dead", true);
-            Destroy(gameObject);
             Death.SetActive(true);
             Cursor.visible = true;
             Time.timeScale = 0;

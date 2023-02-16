@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2691662772618150277}
   - component: {fileID: 8918258045273713294}
   - component: {fileID: 7427113261144743732}
+  - component: {fileID: -7109531226513750065}
   m_Layer: 7
   m_Name: TurretEnemy
   m_TagString: Enemy
@@ -123,13 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   maxHealth: 3
-  boss: 0
-  powerUps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &8918258045273713294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +158,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.81}
   m_Size: {x: 3.04, y: 7.37}
   m_Direction: 0
+--- !u!95 &-7109531226513750065
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2691662772618150274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eea2b70ef4342674584154f87ee8aab9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

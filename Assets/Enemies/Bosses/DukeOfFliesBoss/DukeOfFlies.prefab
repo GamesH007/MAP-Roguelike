@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5600083218938212365}
   - component: {fileID: 5600083218938212364}
   - component: {fileID: 5600083218938212361}
+  - component: {fileID: 8464955389236625531}
   m_Layer: 14
   m_Name: DukeOfFlies
   m_TagString: Boss
@@ -141,4 +142,25 @@ MonoBehaviour:
   flyerSpawnCooldown: 10
   maxHealth: 10
   rotation: {x: 0, y: 0, z: 0}
-  liftDown: {fileID: 1843489265430224048, guid: 38388e589597f7f4c9b8d34e35da166d, type: 3}
+  phase1: {fileID: 1585972183, guid: a2840ebf82f731d4891adc77918cbb65, type: 3}
+  phase2: {fileID: -703448184, guid: efe2ee2048b56364f9914534a9f0f00a, type: 3}
+--- !u!95 &8464955389236625531
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5600083218938212360}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f94da3a8bf64d3a4191cbd30eb8ff42d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

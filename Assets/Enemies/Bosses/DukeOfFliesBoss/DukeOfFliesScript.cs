@@ -21,6 +21,13 @@ public class DukeOfFliesScript : MonoBehaviour
 
     public Vector3 rotation;
 
+    public Sprite phase1;
+    public Sprite phase2;
+
+    SpriteRenderer spriteRenderer;
+
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +35,8 @@ public class DukeOfFliesScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         int rnRotStart = Random.Range(0, 360);
         rotation = new Vector3(rnRotStart, rnRotStart, rnRotStart);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -45,9 +54,22 @@ public class DukeOfFliesScript : MonoBehaviour
             lastSpawnTime = Time.time;
         }
 
+        if (currentHp <= maxHealth/3*2)
+        {
+            animator.SetBool("Phase1", true);
+            spriteRenderer.sprite = phase1;
+        }
+        if (currentHp <= maxHealth / 3)
+        {
+            animator.SetBool("Phase2", true);
+            spriteRenderer.sprite = phase2;
+        }
         if (currentHp <= 0)
         {
-            Destroy(gameObject);
+            lastSpawnTime = float.MaxValue;
+            distance = 0;
+            animator.SetBool("Phase3", true);
+            Destroy(gameObject,1);
         }
     }
 
