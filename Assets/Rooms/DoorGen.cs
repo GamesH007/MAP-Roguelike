@@ -15,6 +15,7 @@ public class DoorGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dis *= Camera.main.orthographicSize * 2 / 12.7f;
         RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, transform.up, dis);
 
         if (rayInfo != true || rayInfo.collider.gameObject.tag != "Wall")

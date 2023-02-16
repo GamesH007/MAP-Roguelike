@@ -30,6 +30,8 @@ public class TurretBossScript : MonoBehaviour
 
     Animator animator;
 
+    bool dead = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +54,19 @@ public class TurretBossScript : MonoBehaviour
             }
         }
 
-        if (currentHp <= 0)
+        if (currentHp <= 0 && dead)
         {
             nextShotTime = float.MaxValue;
             animator.SetBool("Dead", true);
+            Invoke("BoolSetter", 0.1f);
             Destroy(gameObject, 1);
+            dead = false;
         }
+    }
+
+    private void BoolSetter()
+    {
+        animator.SetBool("Dead", false);
     }
 
     public int FireType(int x)

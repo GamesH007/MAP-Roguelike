@@ -28,6 +28,11 @@ public class DukeOfFliesScript : MonoBehaviour
 
     Animator animator;
 
+    bool phaser1 = true;
+    bool phaser2 = true;
+    bool phaser3 = true;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,23 +59,34 @@ public class DukeOfFliesScript : MonoBehaviour
             lastSpawnTime = Time.time;
         }
 
-        if (currentHp <= maxHealth/3*2)
+        if (currentHp <= maxHealth/3*2 && phaser1)
         {
             animator.SetBool("Phase1", true);
             spriteRenderer.sprite = phase1;
+            phaser1 = false;
         }
-        if (currentHp <= maxHealth / 3)
+        if (currentHp <= maxHealth / 3 && phaser2)
         {
             animator.SetBool("Phase2", true);
             spriteRenderer.sprite = phase2;
+            phaser2 = false;
         }
-        if (currentHp <= 0)
+        if (currentHp <= 0 && phaser3)
         {
             lastSpawnTime = float.MaxValue;
             distance = 0;
             animator.SetBool("Phase3", true);
+            Invoke("BoolSetter", 0.1f);
             Destroy(gameObject,1);
+            phaser3 = false;
         }
+    }
+
+    private void BoolSetter()
+    {
+        animator.SetBool("Phase1", false);
+        animator.SetBool("Phase2", false);
+        animator.SetBool("Phase3", false);
     }
 
     public void TakeDamage(float dmg)

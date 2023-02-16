@@ -13,8 +13,8 @@ public class RoomGen : MonoBehaviour
 
     float moveRight = 24.5f;
     float moveLeft = -24.5f;
-    int moveUp = 17;
-    int moveDown = -17;
+    float moveUp = 17f;
+    float moveDown = -17f;
     public int mSize = 13; // use 13 (size of map)
     
     int[,] map = new int[13, 13];
@@ -25,6 +25,11 @@ public class RoomGen : MonoBehaviour
          
     private void Awake()
     {
+        moveRight *= Camera.main.orthographicSize * 2 / 12.7f;
+        moveLeft *= Camera.main.orthographicSize * 2 / 12.7f;
+        moveUp *= Camera.main.orthographicSize * 2 / 12.7f;
+        moveDown *= Camera.main.orthographicSize * 2 / 12.7f;
+
         if (!generated)
         {
             back = Random.Range(0, Background.Length);

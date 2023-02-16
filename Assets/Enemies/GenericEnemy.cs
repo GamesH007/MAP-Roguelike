@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GenericEnemy : MonoBehaviour
@@ -17,6 +18,8 @@ public class GenericEnemy : MonoBehaviour
     private int collisionDamage = 1;
 
     private Animator animator;
+
+    bool dead = true;
 
     // Start is called before the first frame update
     void Start()
@@ -64,12 +67,19 @@ public class GenericEnemy : MonoBehaviour
             animator.SetBool("Walking", false);
         }
 
-        if (currentHp <= 0)
+        if (currentHp <= 0 && dead)
         {
             animator.SetBool("Dead", true);
             distance = 0;
+            Invoke("BoolSetter", 0.1f);
             Destroy(gameObject,1);
+            dead = false;
         }
+    }
+
+    private void BoolSetter()
+    {
+        animator.SetBool("Dead", false);
     }
 
     public void TakeDamage(float dmg)
