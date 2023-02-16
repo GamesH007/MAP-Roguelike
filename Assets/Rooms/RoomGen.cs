@@ -65,6 +65,20 @@ public class RoomGen : MonoBehaviour
                     map[i, mSize - 1] = 2;
                 }
             }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[0, i] == 1)
+                {
+                    map[0, i] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[mSize - 1, i] == 1)
+                {
+                    map[mSize - 1, i] = 2;
+                }
+            }
         }
         if (rn == 1)
         {
@@ -81,6 +95,20 @@ public class RoomGen : MonoBehaviour
                 if (map[mSize - 1, i] == 1)
                 {
                     map[mSize - 1, i] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[i, 0] == 1)
+                {
+                    map[i, 0] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[i, mSize - 1] == 1)
+                {
+                    map[i, mSize - 1] = 2;
                 }
             }
         }
@@ -101,6 +129,20 @@ public class RoomGen : MonoBehaviour
                     map[i, 0] = 2;
                 }
             }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[0, i] == 1)
+                {
+                    map[0, i] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[mSize - 1, i] == 1)
+                {
+                    map[mSize - 1, i] = 2;
+                }
+            }
         }
         if (rn == 3)
         {
@@ -117,6 +159,20 @@ public class RoomGen : MonoBehaviour
                 if (map[0, i] == 1)
                 {
                     map[0, i] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[i, 0] == 1)
+                {
+                    map[i, 0] = 2;
+                }
+            }
+            for (int i = 0; i < mSize; i++)
+            {
+                if (map[i, mSize - 1] == 1)
+                {
+                    map[i, mSize - 1] = 2;
                 }
             }
         }
