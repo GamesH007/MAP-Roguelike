@@ -45,6 +45,10 @@ public class PlayerController : MonoBehaviour
 
     Animator a;
 
+    Vector3 shotD;
+
+    bool dead = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,7 @@ public class PlayerController : MonoBehaviour
 
         Cursor.visible = false;
          a = GetComponent<Animator>();
+        shotD = transform.right;
     }
 
     // Update is called once per frame
@@ -89,6 +94,7 @@ public class PlayerController : MonoBehaviour
             if (transform.rotation.y == 0)
             {
                 transform.Rotate(0,180,0);
+                shotD = -transform.right;
             }
             rb.AddForce(transform.right.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
             a.SetBool("Walking", true);
@@ -98,6 +104,7 @@ public class PlayerController : MonoBehaviour
             if (transform.rotation.y != 0)
             {
                 transform.Rotate(0,-180,0);
+                shotD = transform.right;
             }
             rb.AddForce(transform.right.normalized * distance * speed * Time.deltaTime, ForceMode2D.Impulse);
             a.SetBool("Walking", true);
@@ -130,12 +137,13 @@ public class PlayerController : MonoBehaviour
             hearts[i].SetActive(true);
         }
 
-        if (currentHp <= 0)
+        if (currentHp <= 0 && dead)
         {
             a.SetBool("Dead", true);
-            Death.SetActive(true);
-            Cursor.visible = true;
             Time.timeScale = 0;
+            Invoke("BoolSetter", 0.1f);
+            Invoke("Dead" , 1);
+            dead = false;
         }
     }
 
@@ -165,13 +173,13 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = -transform.right;
+            UpShot.rot = -shotD;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.RightArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = transform.right;
+            UpShot.rot = shotD;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
@@ -195,28 +203,39 @@ public class PlayerController : MonoBehaviour
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[--position[0],position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x, transform.position.y + roomDistanceUp);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorDown")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[++position[0], position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x, transform.position.y - roomDistanceUp);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorRight")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[position[0], ++position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x + roomDistanceRight, transform.position.y);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorLeft")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[position[0], --position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x - roomDistanceRight, transform.position.y);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
+    }
+
+    private void BoolSetter()
+    {
+        a.SetBool("Dead", false);
+    }
+
+    private void Dead()
+    {
+        Death.SetActive(true);
+        Cursor.visible = true;
     }
 }

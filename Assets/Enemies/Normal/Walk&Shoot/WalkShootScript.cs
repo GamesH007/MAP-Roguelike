@@ -69,7 +69,14 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjRight, transform.position, transform.rotation);
+                if (transform.rotation.y == 0)
+                {
+                    Instantiate(EnProjRight, transform.position, transform.rotation);
+                }
+                else
+                {
+                    Instantiate(EnProjLeft, transform.position, transform.rotation);
+                }
                 nextShotTime = Time.time + cooldown;
             }
         }
@@ -77,7 +84,14 @@ public class WalkShootScript : MonoBehaviour
         {
             if (Time.time > nextShotTime && rayInfo.collider.gameObject.tag == "Player")
             {
-                Instantiate(EnProjLeft, transform.position, transform.rotation);
+                if (transform.rotation.y == 0)
+                {
+                    Instantiate(EnProjLeft, transform.position, transform.rotation);
+                }
+                else
+                {
+                    Instantiate(EnProjRight, transform.position, transform.rotation);
+                }
                 nextShotTime = Time.time + cooldown;
             }
         }

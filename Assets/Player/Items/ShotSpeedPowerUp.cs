@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShotSpeedPowerUp : MonoBehaviour
 {
-    float shotSpeedUp = 1;
+    float shotSpeedUp = 0.5f;
     GameObject player;
     PlayerController stats;
 

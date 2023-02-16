@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedPowerUp : MonoBehaviour
 {
-    float speedUp = 1;
+    float speedUp = 0.5f;
     GameObject player;
     PlayerController stats;
 
