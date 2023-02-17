@@ -312,7 +312,7 @@ MonoBehaviour:
   rb: {fileID: 612293702843378273}
   speed: 1
   maxHealth: 10
-  currentHp: 0
+  currentHp: 10
   fireRate: 1
   damage: 1
   projectileUP: {fileID: 6452554917715102238, guid: e6937a40b32aa0c4faf03d6b4a6a575e, type: 3}

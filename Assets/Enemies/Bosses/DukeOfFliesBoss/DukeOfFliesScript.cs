@@ -59,26 +59,28 @@ public class DukeOfFliesScript : MonoBehaviour
             lastSpawnTime = Time.time;
         }
 
-        if (currentHp <= maxHealth/3*2 && phaser1)
+        if (currentHp <= maxHealth * 2 / 3 && phaser1)
         {
             animator.SetBool("Phase1", true);
             spriteRenderer.sprite = phase1;
+            Invoke("BoolSetter", 0.1f);
             phaser1 = false;
         }
         if (currentHp <= maxHealth / 3 && phaser2)
         {
             animator.SetBool("Phase2", true);
             spriteRenderer.sprite = phase2;
+            Invoke("BoolSetter", 0.1f);
             phaser2 = false;
         }
         if (currentHp <= 0 && phaser3)
         {
-            lastSpawnTime = float.MaxValue;
             distance = 0;
             animator.SetBool("Phase3", true);
             Invoke("BoolSetter", 0.1f);
             Destroy(gameObject,1);
             phaser3 = false;
+            lastSpawnTime = float.MaxValue;
         }
     }
 

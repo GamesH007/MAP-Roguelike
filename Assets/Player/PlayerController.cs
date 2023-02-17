@@ -49,9 +49,13 @@ public class PlayerController : MonoBehaviour
 
     bool dead = true;
 
+    bool fullscreenOn = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        Screen.SetResolution(960, 540, false);
+
         UpShot = projectileUP.GetComponent<ProjectileUp>();
 
         for (int i = 0; i < Stats.Length; i++)
@@ -145,6 +149,17 @@ public class PlayerController : MonoBehaviour
             Invoke("Dead" , 1);
             dead = false;
         }
+
+        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.F11)) && !fullscreenOn)
+        {
+            Screen.SetResolution(1920, 1080, true);
+            fullscreenOn = true;
+        }
+        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.F11)) && fullscreenOn)
+        {
+            Screen.SetResolution(960, 540, false);
+            fullscreenOn = false;
+        }
     }
 
     public void TakeDamage(int dmg)
@@ -202,29 +217,29 @@ public class PlayerController : MonoBehaviour
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[--position[0],position[1]].GetComponent<Image>().color = Color.green;
-            transform.position = new Vector2(transform.position.x, transform.position.y + roomDistanceUp * Camera.main.orthographicSize * 2 / 12.7f);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.z);
+            transform.position = new Vector2(transform.position.x, transform.position.y + roomDistanceUp);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y + cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorDown")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[++position[0], position[1]].GetComponent<Image>().color = Color.green;
-            transform.position = new Vector2(transform.position.x, transform.position.y - roomDistanceUp * Camera.main.orthographicSize * 2 / 12.7f);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.z);
+            transform.position = new Vector2(transform.position.x, transform.position.y - roomDistanceUp);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y - cameraDistanceY, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorRight")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[position[0], ++position[1]].GetComponent<Image>().color = Color.green;
-            transform.position = new Vector2(transform.position.x + roomDistanceRight * Camera.main.orthographicSize * 2 / 12.7f, transform.position.y);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            transform.position = new Vector2(transform.position.x + roomDistanceRight, transform.position.y);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
         if (collision.gameObject.tag == "DoorLeft")
         {
             ObjektMapa[position[0], position[1]].GetComponent<Image>().color = Color.cyan;
             ObjektMapa[position[0], --position[1]].GetComponent<Image>().color = Color.green;
-            transform.position = new Vector2(transform.position.x - roomDistanceRight * Camera.main.orthographicSize * 2 / 12.7f, transform.position.y);
-            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX * Camera.main.orthographicSize * 2 / 12.7f, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            transform.position = new Vector2(transform.position.x - roomDistanceRight, transform.position.y);
+            Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
         }
     }
 

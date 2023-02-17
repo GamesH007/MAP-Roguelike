@@ -7,6 +7,7 @@ public class DoorGen : MonoBehaviour
     float dis = 20;
     public GameObject door;
     public  bool active;
+    public GameObject startingPoint;
 
     //int EnemiesInRoom = 0;
     public GameObject[] enemies = null;
@@ -15,10 +16,9 @@ public class DoorGen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dis *= Camera.main.orthographicSize * 2 / 12.7f;
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, transform.up, dis);
+        RaycastHit2D rayInfo = Physics2D.Raycast(startingPoint.transform.position, transform.up, dis);
 
-        if (rayInfo != true || rayInfo.collider.gameObject.tag != "Wall")
+        if (rayInfo == false || rayInfo.collider.gameObject.tag != "Wall" || rayInfo.collider.gameObject.layer != 10)
         {
             door.SetActive(false);
             active = false;
@@ -59,7 +59,7 @@ public class DoorGen : MonoBehaviour
             }
         }
 
-        RaycastHit2D rayRooms = Physics2D.Raycast(transform.position, transform.up, dis);
+        RaycastHit2D rayRooms = Physics2D.Raycast(startingPoint.transform.position, transform.up, dis);
 
         if (rayRooms == true && rayRooms.collider.gameObject.transform.parent.name == "EndRoom(Clone)")
         {
