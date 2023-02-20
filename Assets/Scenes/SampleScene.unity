@@ -16673,6 +16673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 612293702843378276, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
       propertyPath: Death
       value: 
@@ -16682,19 +16686,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 162753923}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
-      propertyPath: Stats.Array.data[0]
+      propertyPath: stats.Array.data[0]
       value: 
       objectReference: {fileID: 175659024}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
-      propertyPath: Stats.Array.data[1]
+      propertyPath: stats.Array.data[1]
       value: 
       objectReference: {fileID: 1880370948}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
-      propertyPath: Stats.Array.data[2]
+      propertyPath: stats.Array.data[2]
       value: 
       objectReference: {fileID: 1094944112}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
-      propertyPath: Stats.Array.data[3]
+      propertyPath: stats.Array.data[3]
       value: 
       objectReference: {fileID: 475232157}
     - target: {fileID: 612293702843378277, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
@@ -17453,7 +17457,8 @@ PrefabInstance:
       propertyPath: trest.Array.data[168]
       value: 
       objectReference: {fileID: 191357750}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5494195038201436027, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7c7e346027ae56d43b16b2b153af0ed6, type: 3}
 --- !u!1 &1685366082
 GameObject:

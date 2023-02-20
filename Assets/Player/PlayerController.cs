@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public float damage = 1;
 
     public GameObject projectileUP;
-    ProjectileUp UpShot;
+    ProjectileUp Shot;
 
     public float shotSpeed = 1.5f;
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
     float damageTaken;
     float damageCool = 0.5f;
 
-    public GameObject[] Stats = new GameObject[4];
+    public GameObject[] stats = new GameObject[4];
     TextMeshProUGUI[] texts = new TextMeshProUGUI[4];
 
     Animator a;
@@ -49,32 +50,29 @@ public class PlayerController : MonoBehaviour
 
     bool dead = true;
 
-    bool fullscreenOn = false;
+    public int disabled = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        Screen.SetResolution(960, 540, false);
+        Shot = projectileUP.GetComponent<ProjectileUp>();
 
-        UpShot = projectileUP.GetComponent<ProjectileUp>();
-
-        for (int i = 0; i < Stats.Length; i++)
+        for (int i = 0; i < stats.Length; i++)
         {
-            texts[i] = Stats[i].GetComponent<TextMeshProUGUI>();
+            texts[i] = stats[i].GetComponent<TextMeshProUGUI>();
         }
-
-        currentHp = maxHealth;
+        
+        a = GetComponent<Animator>();
 
         Cursor.visible = false;
-         a = GetComponent<Animator>();
         shotD = transform.right;
     }
 
     // Update is called once per frame
     void Update()
-    {        
-        UpShot.speed = shotSpeed;
-        UpShot.damage = damage;
+    {
+        Shot.speed = shotSpeed;
+        Shot.damage = damage;
 
         texts[0].text = "Damage - " + damage;
         texts[1].text = "Speed - " + speed;
@@ -144,21 +142,10 @@ public class PlayerController : MonoBehaviour
         if (currentHp <= 0 && dead)
         {
             a.SetBool("Dead", true);
-            Time.timeScale = 0;
             Invoke("BoolSetter", 0.1f);
             Invoke("Dead" , 1);
             dead = false;
-        }
-
-        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.F11)) && !fullscreenOn)
-        {
-            Screen.SetResolution(1920, 1080, true);
-            fullscreenOn = true;
-        }
-        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.F11)) && fullscreenOn)
-        {
-            Screen.SetResolution(960, 540, false);
-            fullscreenOn = false;
+            Time.timeScale = 0;
         }
     }
 
@@ -176,25 +163,25 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = transform.up;
+            Shot.rot = transform.up;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.DownArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = -transform.up;
+            Shot.rot = -transform.up;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.LeftArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = -shotD;
+            Shot.rot = -shotD;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
         if (Input.GetKey(KeyCode.RightArrow) && Time.time > nextShotTime)
         {
-            UpShot.rot = shotD;
+            Shot.rot = shotD;
             Instantiate(projectileUP, transform.position, transform.rotation);
             nextShotTime = Time.time + (cooldown / fireRate);
         }
@@ -240,6 +227,42 @@ public class PlayerController : MonoBehaviour
             ObjektMapa[position[0], --position[1]].GetComponent<Image>().color = Color.green;
             transform.position = new Vector2(transform.position.x - roomDistanceRight, transform.position.y);
             Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - cameraDistanceX, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        }
+        if (collision.gameObject.tag == "LowerLevel")
+        {
+            SceneManager.LoadScene("SampleScene");
+            disabled++;
+        }
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetFloat("dmg", damage);
+        PlayerPrefs.SetFloat("shSpeed", shotSpeed);
+        PlayerPrefs.SetFloat("fiRate", fireRate);
+        if (currentHp != 0)
+        {
+            PlayerPrefs.SetInt("health", currentHp);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("health", maxHealth);
+        }
+        PlayerPrefs.SetFloat("movementSpeed", speed);
+        PlayerPrefs.SetInt("dis", disabled);
+    }
+
+    private void OnEnable()
+    {
+        disabled = PlayerPrefs.GetInt("dis");
+
+        if (disabled > 0)
+        {
+            damage = PlayerPrefs.GetFloat("dmg");
+            shotSpeed = PlayerPrefs.GetFloat("shSpeed");
+            fireRate = PlayerPrefs.GetFloat("fiRate");
+            maxHealth = PlayerPrefs.GetInt("health");
+            speed = PlayerPrefs.GetFloat("movementSpeed");
         }
     }
 

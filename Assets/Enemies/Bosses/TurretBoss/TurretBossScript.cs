@@ -49,7 +49,7 @@ public class TurretBossScript : MonoBehaviour
             for (attacked = 0; attacked < 1;)
             {
                 rotation = 0;
-                rnAttack = UnityEngine.Random.Range(0, 2);
+                rnAttack = Random.Range(0, 2);
                 FireType(rnAttack);
             }
         }
